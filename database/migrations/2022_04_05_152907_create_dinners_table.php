@@ -14,7 +14,11 @@ class CreateDinnersTable extends Migration
     public function up()
     {
         Schema::create('dinners', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('meal');
+            $table->string('side')->nullable();
+            $table->string('soup')->nullable();
             $table->timestamps();
         });
     }
