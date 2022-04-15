@@ -25,6 +25,10 @@ Route::get('/login', function () {
     return view('layouts.login');
 });
 
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
 
 Auth::routes();
 
