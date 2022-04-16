@@ -15,7 +15,7 @@ class DinnerController extends Controller
     public function index()
     {
         $dinners = Dinner::all();
-        return view("一覧画面を表示させたい画面", ['dinners' => $dinners]);
+        return view("dinner", ['dinners' => $dinners]);
     }
 
     /**
@@ -25,7 +25,7 @@ class DinnerController extends Controller
      */
     public function create()
     {
-        return view("投稿完了画面もしくはホームページ");
+        return view("dinner");
     }
 
     /**
@@ -54,7 +54,7 @@ class DinnerController extends Controller
      */
     public function show(Dinner $dinner)
     {
-        return view("　", [
+        return view("", [
             'dinner' => $dinner,
         ]);
     }
