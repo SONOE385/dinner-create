@@ -15,8 +15,7 @@ class DinnerController extends Controller
     public function index()
     {
         $dinners = Dinner::all();
-        return view("　", ['dinners' => $dinners]);
-
+        return view("一覧画面を表示させたい画面", ['dinners' => $dinners]);
     }
 
     /**
@@ -26,7 +25,7 @@ class DinnerController extends Controller
      */
     public function create()
     {
-        return view("　");
+        return view("投稿完了画面もしくはホームページ");
     }
 
     /**
@@ -36,12 +35,15 @@ class DinnerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $dinner = new Dinner($request->input('dinner'));
+    {   
+        $dinner = new Dinner;
+        $channel->user_id = $request->user_id;
+        $channel->meal = $request->meal;
+        $channel->side = $request->side;
+        $channel->soup = $request->soup;
         $dinner->save();
 
-        return redirect()->route('dinner')->with('message', '作成しました。');
-
+        return redirect()->route('dinner.create');
     }
 
     /**
@@ -59,7 +61,7 @@ class DinnerController extends Controller
 
 
     /**
-     * Show the form for editing the specified resource.
+     * 編集メソッド
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -67,12 +69,12 @@ class DinnerController extends Controller
     public function edit($id)
     {
         $dinner = Dinner::find($id);
-        return view("　", [
+        return view("auth.edit", [
             'dinner' => $dinner,
         ]);
     }
     /**
-     * Update the specified resource in storage.
+     * 更新メソッド
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -88,7 +90,7 @@ class DinnerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 削除メソッド
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
