@@ -34,5 +34,9 @@ Auth::routes();
 
 Route::post('/dinner', [App\Http\Controllers\DinnerController::class, 'store'])->name('dinner.store');
 Route::get('/dinner', [App\Http\Controllers\DinnerController::class, 'create'])->name('dinner.create');
+Route::post('/group', [App\Http\Controllers\GroupController::class, 'store'])->name('group.store');
+Route::get('/group', [App\Http\Controllers\GroupController::class, 'create'])->name('group.create');
+Route::get('/group-edit', [App\Http\Controllers\GroupController::class, 'edit'])->name('group.edit');
+Route::post('/group-edit', [App\Http\Controllers\GroupController::class, 'update'])->name('group.update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -80,7 +80,7 @@ class GroupController extends Controller
         $group->fill($request->input('group'));
         $group->save();
 
-        return redirect()->route('group-edit')->with('message', '更新しました。');    }
+        return redirect()->route('group.edit')->with('message', '更新しました。');    }
 
     /**
      * Remove the specified resource from storage.
