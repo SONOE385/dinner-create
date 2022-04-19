@@ -86,7 +86,7 @@ class DinnerController extends Controller
         $dinner->fill($request->input('dinner'));
         $dinner->save();
 
-        return redirect()->route('dinners.index')->with('message', '更新しました。');
+        return redirect()->route('dinners.edit')->with('message', '更新しました。');
     }
 
     /**

@@ -32,8 +32,13 @@ Route::get('/register', function () {
 
 Auth::routes();
 
+// dinnerコントローラー
 Route::post('/dinner', [App\Http\Controllers\DinnerController::class, 'store'])->name('dinner.store');
 Route::get('/dinner', [App\Http\Controllers\DinnerController::class, 'create'])->name('dinner.create');
+Route::get('/dinner.edit', [App\Http\Controllers\DinnerController::class, 'edit'])->name('dinner.edit');
+Route::post('/dinner.edit', [App\Http\Controllers\DinnerController::class, 'update'])->name('dinner.update');
+
+// groupコントローラー
 Route::post('/group', [App\Http\Controllers\GroupController::class, 'store'])->name('group.store');
 Route::get('/group', [App\Http\Controllers\GroupController::class, 'create'])->name('group.create');
 Route::get('/group-edit', [App\Http\Controllers\GroupController::class, 'edit'])->name('group.edit');
