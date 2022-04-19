@@ -25,7 +25,7 @@ class DinnerController extends Controller
      */
     public function create()
     {
-        return view("dinner");
+        return view("dinner-form");
     }
 
     /**
@@ -37,10 +37,10 @@ class DinnerController extends Controller
     public function store(Request $request)
     {   
         $dinner = new Dinner;
-        $channel->user_id = $request->user_id;
-        $channel->meal = $request->meal;
-        $channel->side = $request->side;
-        $channel->soup = $request->soup;
+        $dinner->user_id = $request->user_id;
+        $dinner->meal = $request->meal;
+        $dinner->side = $request->side;
+        $dinner->soup = $request->soup;
         $dinner->save();
 
         return redirect()->route('dinner.create');
@@ -69,7 +69,7 @@ class DinnerController extends Controller
     public function edit($id)
     {
         $dinner = Dinner::find($id);
-        return view("auth.edit", [
+        return view("dinner.edit", [
             'dinner' => $dinner,
         ]);
     }
