@@ -18,7 +18,7 @@ body{
 }
 
 .title-area a{
-  color:#4b4d46;
+  color:#0f0f0d;
   font-size: 1.5rem;
   text-decoration: none;
 }
@@ -76,20 +76,39 @@ body{
   margin-right:30px;
 }
 
+.list-top .btn:hover{
+  background-color: #ca7373;
+}
+
 .list-top a:hover{
   background-color: #ca7373;
   color:white;
 }
 
 .list-title{
-  margin:50px 0 40px 0;
+  padding:50px 0 40px 80px;
   float:left;
   font-size: 15px;
 }
 
+.list-box a{
+  color:#0f0f0d
+}
+
+.list-area:hover{
+  background-color: #efefeb;
+  color:#0f0f0d;
+  border:1px solid #849994;
+  box-shadow: 0 0 8px #63736f;
+
+}
+
+
 .list-box{
+  width:85%;
   display: flex;
   justify-content: space-around;
+  margin: 0 auto;
   margin-top:130px;
   text-align: center;
 
@@ -100,7 +119,7 @@ body{
   background: white;
   /* border-top: solid 2px #95998b; */
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  width:440px;
+  width:420px;
   height:200px;
   padding: 0.5em 1em;
   margin-bottom: 50px;
@@ -115,10 +134,69 @@ body{
   text-align:left;
   font-size: 18px;
   line-height:2.5;
+  padding-bottom: 0;
+  margin:0;
+
+}
+
+.delete{
+  width:100%;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+.delete a{
+  color: red;
+  margin-right: 20px;
 }
 
 
 /*********ログイン画面***********/
 .text-center{
   width:50%;
+}
+
+/*********グループ画面***********/
+.navbar{
+  background-color: #03114d;
+
+}
+
+.navbar-brand{
+  color:azure;
+}
+
+.navbar-brand:hover{
+  color:#95998b;
+}
+
+
+.nav-link{
+  color:azure;
+}
+
+.group-list-box{
+  display: flex;
+  justify-content: space-around;
+  padding-top:30px;
+  text-align: center;
+}
+
+.group-list{
+  width:80%;
+  margin:0 auto;
+  margin-top:50px;
+}
+
+/*********献立作成・編集画面***********/
+
+.button-area{
+  width:40%;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.btn-delete{
+  background-color: #03114d;
 }
