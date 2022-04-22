@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
@@ -35,7 +36,10 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
+        $user=Auth::user();
+
         $group = new Group;
+        $dinner->user_id = $user->id;
         $group->name = $request->name;
         $group->save();
 
