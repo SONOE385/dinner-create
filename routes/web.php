@@ -17,16 +17,28 @@ Route::get('/', function () {
     return view('dinner');
 });
 
-Route::get('/app', function () {
-    return view('layouts.app');
+Route::get('/edit', function () {
+    return view('auth.edit');
 });
 
 Route::get('/login', function () {
-    return view('layouts.login');
+    return view('auth.login');
 });
 
 Route::get('/register', function () {
     return view('auth.register');
+});
+
+Route::get('/list', function () {
+    return view('group_list');
+});
+
+Route::get('/create', function () {
+    return view('create_menu');
+});
+
+Route::get('/editmenu', function () {
+    return view('edit_menu');
 });
 
 

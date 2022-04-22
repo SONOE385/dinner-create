@@ -2,6 +2,7 @@
     <link href="{{ asset('css/user-infomation.css') }}" rel="stylesheet">
 @endpush
 
+
 @extends('layouts.app')
 
 @section('content')

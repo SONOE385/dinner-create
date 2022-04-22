@@ -32,27 +32,38 @@
             <img src="/image/icon2.png" class="icon2" alt="">
 
             <div class="list-top">
-                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href=''">グループ一覧</button>
-                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href=''">献立作成</button>
+                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/list'">グループ一覧</button>
+                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/create'">献立作成</button>
             </div>
 
             <div class="list-title">--------   献立一覧   --------</div>
 
             <div class="list-box">
-                <div class="list-area">
-                    <p class="text">
-                        main-------ハンバーグ</br>
-                        side-------サラダ</br>
-                        soup-------コンソメスープ           
-                    </p>
-                </div>
-                <div class="list-area">
-                    <p class="text">
-                        main-------ハンバーグ</br>
-                        side-------サラダ</br>
-                        soup-------コンソメスープ           
-                    </p>
-                </div>
+                <a href="/editmenu">
+                    <div class="list-area">
+                        <p class="text">
+                            main-------ハンバーグ</br>
+                            side-------サラダ</br>
+                            soup-------コンソメスープ           
+                        </p>
+                        <div class="delete">
+                            <a href="">削除</a>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="/editmenu">
+                    <div class="list-area">
+                        <p class="text">
+                            main-------ハンバーグ</br>
+                            side-------サラダ</br>
+                            soup-------コンソメスープ           
+                        </p>
+                        <div class="delete">
+                            <a href="">削除</a>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="footer"></div>
