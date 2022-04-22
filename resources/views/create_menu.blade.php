@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('dinner.store') }}">
                     @csrf
                     <div class="user-infomation-title">
                     献立登録

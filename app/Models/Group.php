@@ -15,6 +15,7 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'name',
     ];
 

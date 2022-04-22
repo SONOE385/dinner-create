@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dinner;
+use Illuminate\Support\Facades\Auth;
 
 class DinnerController extends Controller
 {
@@ -25,7 +26,7 @@ class DinnerController extends Controller
      */
     public function create()
     {
-        return view("dinner-form");
+        return view("dinner");
     }
 
     /**
@@ -36,8 +37,10 @@ class DinnerController extends Controller
      */
     public function store(Request $request)
     {   
+        $user=Auth::user();
+
         $dinner = new Dinner;
-        $dinner->user_id = $request->user_id;
+        $dinner->user_id = $user->id;
         $dinner->meal = $request->meal;
         $dinner->side = $request->side;
         $dinner->soup = $request->soup;

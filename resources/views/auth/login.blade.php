@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="user-infomation-title">
                     ログイン
