@@ -12,7 +12,6 @@
 <body class="container" style="background-color:#F1EFE8" >
         <div class="header">
             <div class="title-area">
-                
                 <a href="">create dinner menu</a>
                 <img src="/image/icon1.png" class="icon1" alt="">
                 <div class="auth-path">
@@ -20,7 +19,7 @@
                     @auth
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <input class="btn btn-outline-danger" type="submit" value="ログアウト">
+                        <input class="btn btn-outline-danger logout-button" type="submit" value="ログアウト">
                     </form>
                     @else
                     <a href="{{ route('login') }}" class="login-edit-button">

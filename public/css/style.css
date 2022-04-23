@@ -9,7 +9,7 @@ body{
 
 /*********ヘッダー***********/
 .header{
-  width:100%;
+  width: 100%;
 }
 
 .title-area{
@@ -36,6 +36,10 @@ body{
 
 .icon1 img{
   width:100%;
+}
+
+.auth-path .logout-button {
+  margin: 0 0 0 90px;
 }
 
 .auth-path button{
