@@ -15,12 +15,26 @@
                 
                 <a href="">create dinner menu</a>
                 <img src="/image/icon1.png" class="icon1" alt="">
-                
-                <form action="" method="post">
-                    @csrf
-                    <input type="hidden" name="" value="ログアウト">
-                    <a href="">logout</a>
-                </form>         
+                <div class="auth-path">
+                @if (Route::has('login'))
+                    @auth
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <input class="btn btn-outline-danger" type="submit" value="ログアウト">
+                    </form>
+                    @else
+                    <a href="{{ route('login') }}" class="login-edit-button">
+                        <button type="button" class="btn btn-outline-danger">ログイン</button>
+                    </a>
+
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="login-edit-button">
+                        <button type="button" class="btn btn-outline-danger">新規登録</button>
+                    </a>
+                    @endif
+                    @endauth
+                @endif
+                </div>
             </div>
 
             <div class="images">
