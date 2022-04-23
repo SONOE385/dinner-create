@@ -17,22 +17,6 @@ Route::get('/', function () {
     return view('dinner');
 });
 
-Route::get('/dinner', function () {
-    return view('dinner');
-});
-
-Route::get('/edit', function () {
-    return view('auth.edit');
-});
-
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
-Route::get('/register', function () {
-    return view('auth.register');
-});
-
 Route::get('/list', function () {
     return view('group_list');
 });
@@ -61,4 +45,9 @@ Route::get('/group-create', [App\Http\Controllers\GroupController::class, 'creat
 Route::get('/group-edit', [App\Http\Controllers\GroupController::class, 'edit'])->name('group.edit');
 Route::post('/group-edit', [App\Http\Controllers\GroupController::class, 'update'])->name('group.update');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// userコントローラー
+Route::group(['middleware' => 'auth'], function()
+{  
+   Route::get('/edit', [App\Http\Controllers\Admin\UserController::class, 'edit'])->name('user.edit');
+   Route::post('/edit', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('user.update');
+});

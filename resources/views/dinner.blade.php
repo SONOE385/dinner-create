@@ -41,6 +41,7 @@
             </div>  
         </div>
         <div class="main">
+            <!-- <a href="{{ route('user.edit') }}">テストテスト</a> -->
 
             <img src="/image/icon2.png" class="icon2" alt="">
 
