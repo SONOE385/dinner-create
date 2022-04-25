@@ -84,11 +84,12 @@ body{
 
 .list-top .btn:hover{
   background-color: #ca7373;
+  cursor: pointer;
 }
 
 .list-top a:hover{
-  background-color: #ca7373;
   color:white;
+  cursor: default;
 }
 
 .list-title{
