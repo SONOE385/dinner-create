@@ -25,6 +25,10 @@ Route::get('/editmenu', function () {
     return view('edit_menu');
 });
 
+Route::get('/create_group', function () {
+    return view('create_group');
+});
+
 
 Auth::routes();
 
