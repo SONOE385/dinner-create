@@ -21,10 +21,6 @@ Route::get('/list', function () {
     return view('group_list');
 });
 
-Route::get('/create', function () {
-    return view('create_menu');
-});
-
 Route::get('/editmenu', function () {
     return view('edit_menu');
 });

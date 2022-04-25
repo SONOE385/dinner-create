@@ -4,7 +4,9 @@
 /***********ボディ***********/
 body{
   max-width:100%;
-  font-style:italic;
+/************フォントの一括変更***********/
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-style: italic;
 }
 
 /*********ヘッダー***********/
@@ -23,7 +25,6 @@ body{
   color:#0f0f0d;
   font-size: 1.5rem;
   text-decoration: none;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .title-area a:hover{
