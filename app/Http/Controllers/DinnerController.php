@@ -26,7 +26,7 @@ class DinnerController extends Controller
      */
     public function create()
     {
-        return view("dinner");
+        return view("create_menu");
     }
 
     /**
