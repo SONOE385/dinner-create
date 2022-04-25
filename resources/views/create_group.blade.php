@@ -8,11 +8,10 @@
                 <form method="POST" action="">
                     @csrf
                     <div class="user-infomation-title">
-                    献立登録
+                    グループ作成
                     </div>
 
                     <div class="">
-                    <a href="/create_group">グループを作成する</a>
                         <div class="row mb-3">              
                             <div class="">
                                 <input id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
