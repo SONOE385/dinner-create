@@ -1,14 +1,9 @@
+
 @extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('title','ホーム')
 
-    <title>献立一覧</title>
-</head>
+@section('content')
 <body class="container" style="background-color:#F1EFE8" >
         <div class="header">
             <div class="title-area">
@@ -19,16 +14,16 @@
                     @auth
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <input class="btn btn-outline-danger logout-button" type="submit" value="ログアウト">
+                        <input class="btn  logout-button" type="submit" value="ログアウト">
                     </form>
                     @else
                     <a href="{{ route('login') }}" class="login-edit-button">
-                        <button type="button" class="btn btn-outline-danger">ログイン</button>
+                        <button type="button" class="btn">ログイン</button>
                     </a>
 
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="login-edit-button">
-                        <button type="button" class="btn btn-outline-danger">新規登録</button>
+                        <button type="button" class="btn">新規登録</button>
                     </a>
                     @endif
                     @endauth
@@ -56,6 +51,9 @@
                 </a>
                 @endauth
                 @endif
+                <!-- 確認のため仮置き 後で消してOK-->
+                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/create.menu'">献立作成</button>
+
             </div>
 
             <div class="list-title">--------   献立一覧   --------</div>
@@ -90,4 +88,5 @@
         </div>
         <div class="footer"></div>
 </body>
-</html>
+
+@endsection

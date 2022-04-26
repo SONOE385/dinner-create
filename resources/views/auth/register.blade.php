@@ -1,8 +1,6 @@
-@push('css')
-    <link href="{{ asset('css/user-infomation.css') }}" rel="stylesheet">
-@endpush
-
 @extends('layouts.app')
+
+@section('title','会員登録')
 
 @section('content')
 <div class="main-container">
@@ -11,7 +9,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="user-infomation-title">
-                    <h1 >会員登録</h1>
+                    会員登録
                 </div>
 
                 <div class="">

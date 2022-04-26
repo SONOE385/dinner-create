@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','献立登録')
+
 @section('content')
     <div class="main-container">
         <div class="row justify-content-center">
@@ -11,15 +13,14 @@
                     </div>
 
                     <div class="">
-                    <a href="/create_group">グループを作成する</a>
-                        <div class="row mb-3">              
+                        <div class="row mb-2">              
                             <div class="">
-                                <input id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
-                                <datalist id="dinner-group">
-                                    <option value="Aグループ">
-                                    <option value="Bグループ">
-                                    <option value="Cグループ">
-                                </datalist>
+                                <select name="group"  class="form-control @error('group') is-invalid @enderror" name="group" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
+                                    <option hidden>選択してください</option>
+                                    <option value="1">Aグループ</option>
+                                    <option value="2">Bグループ</option>
+                                    <option value="3">Cグループ</option>
+                                </select>
 
                                 @error('group')
                                 <span class="invalid-feedback" role="alert">
@@ -28,6 +29,10 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="create-link row mb-1">
+                            <a href="/create_group">グループ作成はこちら</a>
+                        </div>
+
                         
                         <div class="row mb-3">                        
                             <div class="">

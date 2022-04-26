@@ -29,6 +29,10 @@ Route::get('/create_group', function () {
     return view('create_group');
 });
 
+Route::get('/create.menu', function () {
+    return view('create_menu');
+});
+
 
 Auth::routes();
 
