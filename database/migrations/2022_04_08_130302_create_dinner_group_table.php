@@ -15,8 +15,11 @@ class CreateDinnerGroupTable extends Migration
     {
         Schema::create('dinner_group', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('dinner_id')->unsigned();
-            $table->bigInteger('group_id')->unsigned();
+            $table->unsignedInteger('dinner_id');
+            $table->unsignedInteger('group_id');
+            // 外部キー制約
+            $table->foreign('dinner_id')->references('id')->on('dinners')->onDelete('cascade');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -20,4 +20,9 @@ class Dinner extends Model
         'side',
         'soup',
     ];
+
+    public function groups()
+    {
+        return $this->belongsToMany('App\Models\Group')->withTimestamps();
+    }
 }
