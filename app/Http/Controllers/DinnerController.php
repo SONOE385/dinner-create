@@ -15,7 +15,12 @@ class DinnerController extends Controller
      */
     public function index()
     {
-        $dinners = Dinner::all();
+        $auth = Auth::user();
+        $auth_id = Auth::id();
+
+        // ユーザーごとのグループデータを表示
+        $dinners = Dinner::where('user_id', '=', $auth_id)->get();
+
         return view("dinner", ['dinners' => $dinners]);
     }
 
@@ -37,6 +42,14 @@ class DinnerController extends Controller
      */
     public function store(Request $request)
     {   
+        $rules = [
+            'meal' => ['required', 'string'],
+            'side' => ['required', 'string'],
+            'soup' => ['required', 'string'],
+        ];
+
+        $this->validate($request, $rules);
+
         $user=Auth::user();
 
         $dinner = new Dinner;
@@ -72,6 +85,11 @@ class DinnerController extends Controller
     public function edit($id)
     {
         $dinner = Dinner::find($id);
+
+        if (auth()->user()->id != $group->user_id) {
+            return redirect(route('group.index')->with('error', '許可されていない操作です'));
+        };
+
         return view("dinner.edit", [
             'dinner' => $dinner,
         ]);
@@ -86,6 +104,15 @@ class DinnerController extends Controller
     public function update(Request $request, $id)
     {
         $dinner = Dinner::find($id);
+
+        $rules = [
+            'meal' => ['required', 'string'],
+            'side' => ['required', 'string'],
+            'soup' => ['required', 'string'],
+        ];
+
+        $this->validate($request, $rules);
+
         $dinner->fill($request->input('dinner'));
         $dinner->save();
 
