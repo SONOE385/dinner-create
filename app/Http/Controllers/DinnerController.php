@@ -59,7 +59,7 @@ class DinnerController extends Controller
         $dinner->soup = $request->soup;
         $dinner->save();
 
-        return redirect()->route('dinner.create');
+        return redirect()->route('dinner.create')->with('message', '作成しました。');
     }
 
     /**

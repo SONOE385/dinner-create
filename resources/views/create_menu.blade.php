@@ -53,7 +53,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" placeholder="soup" required autocomplete="new-soup">
+                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" value="{{ old('soup') }}" placeholder="soup" required autocomplete="new-soup">
                                 
                                 @error('soup')
                                 <span class="invalid-feedback" role="alert">
