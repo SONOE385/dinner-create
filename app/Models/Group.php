@@ -21,6 +21,6 @@ class Group extends Model
 
     public function dinners()
     {
-        return $this->belongsToMany('App\Models\Dinner')->withTimestamps();
+        return $this->hasMany('App\Models\Dinner');
     }
 }

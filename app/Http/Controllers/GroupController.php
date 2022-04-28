@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use App\Models\Dinner;
 use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller

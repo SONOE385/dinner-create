@@ -23,6 +23,6 @@ class Dinner extends Model
 
     public function groups()
     {
-        return $this->belongsToMany('App\Models\Group')->withTimestamps();
+        return $this->belongsTo('App\Models\Group');
     }
 }
