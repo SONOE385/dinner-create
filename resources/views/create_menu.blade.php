@@ -29,7 +29,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="create-link row mb-1">
+                        <div class="link">
                             <a href="/create_group">グループ作成はこちら</a>
                         </div>
 

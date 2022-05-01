@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('dinner');
 });
 
-Route::get('/list', function () {
-    return view('group_list');
+Route::get('/pick', function () {
+    return view('group_pick');
+});
+
+Route::get('/group', function () {
+    return view('group_show');
 });
 
 Route::get('/editmenu', function () {
@@ -32,6 +36,7 @@ Route::get('/create_group', function () {
 Route::get('/create.menu', function () {
     return view('create_menu');
 });
+
 
 
 Auth::routes();
