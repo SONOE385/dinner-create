@@ -58,7 +58,7 @@ class GroupController extends Controller
         $group->save();
         
         // グループ作成画面に遷移
-        return redirect()->route('group.create')->with('message', '作成しました。');
+        return redirect()->route('group.index');
     }
 
     /**
@@ -68,9 +68,14 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        $user = Auth::user();
+
         // ユーザーごとのグループデータを表示
         $dinners = Dinner::where('group_id', '=', $id)->get();
+        if ($user->id != $dinners[0]->user_id) {
+            return redirect(route('login')->with('error', '許可されていない操作です'));
+        };
 
         return view("group_show", [
             'dinners' => $dinners,

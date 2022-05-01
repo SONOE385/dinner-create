@@ -281,3 +281,17 @@ body{
   text-decoration: none;
 }
 
+/* 献立登録時メッセージ */
+.update-alert {
+  position: absolute;
+  padding: 20px 10%;
+  top: 20%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  border-color: rgb(228, 0, 0);
+  font-size: 16px;
+}
+

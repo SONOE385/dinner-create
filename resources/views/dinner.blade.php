@@ -46,7 +46,7 @@
                 </a>
                 @if (Route::has('login'))
                 @auth
-                <a href="{{ route('dinner.index') }}">
+                <a href="{{ route('dinner.create') }}">
                     <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/create'">献立作成</button>
                 </a>
                 @else

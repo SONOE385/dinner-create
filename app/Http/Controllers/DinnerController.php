@@ -22,7 +22,6 @@ class DinnerController extends Controller
         // ユーザーごとのグループデータを表示
         $dinners = Dinner::where('user_id', '=', $auth_id)->get();
 
-
         return view("dinner", ['dinners' => $dinners]);
     }
 
@@ -49,7 +48,7 @@ class DinnerController extends Controller
     public function store(Request $request)
     {   
         $rules = [
-            'group_id' => ['required', 'bigintger'],
+            'group_id' => ['required'],
             'meal' => ['required', 'string'],
             'side' => ['required', 'string'],
             'soup' => ['required', 'string'],
