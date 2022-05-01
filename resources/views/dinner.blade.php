@@ -1,14 +1,9 @@
+
 @extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('title','ホーム')
 
-    <title>献立一覧</title>
-</head>
+@section('content')
 <body class="container" style="background-color:#F1EFE8" >
         <div class="header">
             <div class="title-area">
@@ -19,16 +14,16 @@
                     @auth
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
-                        <input class="btn btn-outline-danger logout-button" type="submit" value="ログアウト">
+                        <input class="btn logout-button" type="submit" value="ログアウト">
                     </form>
                     @else
                     <a href="{{ route('login') }}" class="login-edit-button">
-                        <button type="button" class="btn btn-outline-danger">ログイン</button>
+                        <button type="button" class="btn">ログイン</button>
                     </a>
 
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="login-edit-button">
-                        <button type="button" class="btn btn-outline-danger">新規登録</button>
+                        <button type="button" class="btn">新規登録</button>
                     </a>
                     @endif
                     @endauth
@@ -46,13 +41,17 @@
             <img src="/image/icon2.png" class="icon2" alt="">
 
             <div class="list-top">
-                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/list_group'">グループ一覧</button>
+
+                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/pick'">グループ一覧</button>
+
+                
+
                 @if (Route::has('login'))
                 @auth
                 <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/create'">献立作成</button>
                 @else
                 <a href="{{ route('register') }}">
-                    <button type="button" class="btn btn-lg rounded-pill">新規登録</button>
+                    <button type="button" class="btn btn-lg rounded-pill">会員登録</button>
                 </a>
                 @endauth
                 @endif
@@ -60,22 +59,26 @@
 
             <div class="list-title">--------   献立一覧   --------</div>
 
-            <div class="list-box">
-                <a href="/editmenu">
-                    <div class="list-area">
-                        <p class="text">
-                            main-------ハンバーグ</br>
-                            side-------サラダ</br>
-                            soup-------コンソメスープ           
-                        </p>
-                        <div class="delete">
-                            <a href="">削除</a>
-                        </div>
-                    </div>
-                </a>
+            {{--<div class="list-box">
+                @foreach($dinners as $dinner
+                <div class="list-area">
+                <table>
+                    @if ($dinner % 2 == 0) {<tr>}
+                    <td>
+                        <ul>
+                            <li>{{ $dinner->meal }}</tr>
+                                {{ $dinner->side }}</tr>
+                                {{ $dinner->soup }}</tr>
+                            </li>
+                        </ul>
+                    </td>
+                    @if ($dinner % 2 == 1) {</tr>}
+                 @endif
+                </table>
                 
                 <a href="/editmenu">
                     <div class="list-area">
+
                         <p class="text">
                             main-------ハンバーグ</br>
                             side-------サラダ</br>
@@ -85,9 +88,10 @@
                             <a href="">削除</a>
                         </div>
                     </div>
-                </a>
+                </a>--}}
             </div>
         </div>
         <div class="footer"></div>
 </body>
-</html>
+
+@endsection

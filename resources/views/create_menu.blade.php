@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','献立登録')
+
 @section('content')
     <div class="main-container">
         <div class="row justify-content-center">
@@ -11,6 +13,9 @@
                     </div>
 
                     <div class="">
+
+                       
+
                         <a href="{{ route('group.create') }}">グループを作成する</a>
                         <div class="row mb-3">
                             <div>
@@ -20,6 +25,7 @@
                                     @endforeach
                                 </select>
                                 
+
                                 @error('group')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -27,6 +33,10 @@
                                 @enderror
                             </div>              
                         </div>
+                        <div class="link">
+                            <a href="/create_group">グループ作成はこちら</a>
+                        </div>
+
                         
                         <div class="row mb-3">                        
                             <div class="">

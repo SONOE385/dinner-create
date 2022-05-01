@@ -1,9 +1,6 @@
-@push('css')
-    <link href="{{ asset('css/user-infomation.css') }}" rel="stylesheet">
-@endpush
-
-
 @extends('layouts.app')
+
+@section('title','会員情報編集')
 
 @section('content')
 <div class="main-container">

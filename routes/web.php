@@ -21,6 +21,7 @@ Route::get('/editmenu', function () {
     return view('edit_menu');
 });
 
+
 Auth::routes();
 
 // dinnerコントローラー
