@@ -20,4 +20,9 @@ class Dinner extends Model
         'side',
         'soup',
     ];
+
+    public function groups()
+    {
+        return $this->belongsTo('App\Models\Group');
+    }
 }

@@ -41,7 +41,11 @@
             <img src="/image/icon2.png" class="icon2" alt="">
 
             <div class="list-top">
+
                 <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/pick'">グループ一覧</button>
+
+                
+
                 @if (Route::has('login'))
                 @auth
                 <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/create'">献立作成</button>

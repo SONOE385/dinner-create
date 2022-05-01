@@ -17,26 +17,9 @@ Route::get('/', function () {
     return view('dinner');
 });
 
-Route::get('/pick', function () {
-    return view('group_pick');
-});
-
-Route::get('/group', function () {
-    return view('group_show');
-});
-
 Route::get('/editmenu', function () {
     return view('edit_menu');
 });
-
-Route::get('/create_group', function () {
-    return view('create_group');
-});
-
-Route::get('/create.menu', function () {
-    return view('create_menu');
-});
-
 
 
 Auth::routes();
@@ -50,8 +33,10 @@ Route::get('/dinner.edit', [App\Http\Controllers\DinnerController::class, 'edit'
 Route::post('/dinner.edit', [App\Http\Controllers\DinnerController::class, 'update'])->name('dinner.update');
 
 // groupコントローラー
-Route::post('/group-create', [App\Http\Controllers\GroupController::class, 'store'])->name('group.store');
-Route::get('/group-create', [App\Http\Controllers\GroupController::class, 'create'])->name('group.create');
+
+Route::get('/list_group', [App\Http\Controllers\GroupController::class, 'index'])->name('group.index')->middleware('auth'); //middlewareを付けることによって未ログイン時は自動的にログイン画面に遷移
+Route::get('/create_group', [App\Http\Controllers\GroupController::class, 'create'])->name('group.create');
+Route::post('/create_group', [App\Http\Controllers\GroupController::class, 'store'])->name('group.store');
 Route::get('/group-edit', [App\Http\Controllers\GroupController::class, 'edit'])->name('group.edit');
 Route::post('/group-edit', [App\Http\Controllers\GroupController::class, 'update'])->name('group.update');
 

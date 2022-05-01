@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dinner;
+use App\Models\Group;
 use Illuminate\Support\Facades\Auth;
 
 class DinnerController extends Controller
@@ -15,7 +16,13 @@ class DinnerController extends Controller
      */
     public function index()
     {
-        $dinners = Dinner::all();
+        $auth = Auth::user();
+        $auth_id = Auth::id();
+
+        // ユーザーごとのグループデータを表示
+        $dinners = Dinner::where('user_id', '=', $auth_id)->get();
+
+
         return view("dinner", ['dinners' => $dinners]);
     }
 
@@ -26,7 +33,11 @@ class DinnerController extends Controller
      */
     public function create()
     {
-        return view("create_menu");
+        $auth = Auth::user();
+        $auth_id = Auth::id();
+
+        $groups = Group::where('user_id', '=', $auth_id)->get();
+        return view("create_menu",['groups' => $groups]);
     }
 
     /**
@@ -37,16 +48,26 @@ class DinnerController extends Controller
      */
     public function store(Request $request)
     {   
+        $rules = [
+            'group_id' => ['required', 'bigintger'],
+            'meal' => ['required', 'string'],
+            'side' => ['required', 'string'],
+            'soup' => ['required', 'string'],
+        ];
+
+        $this->validate($request, $rules);
+
         $user=Auth::user();
 
         $dinner = new Dinner;
         $dinner->user_id = $user->id;
+        $dinner->group_id = $request->group_id;
         $dinner->meal = $request->meal;
         $dinner->side = $request->side;
         $dinner->soup = $request->soup;
         $dinner->save();
 
-        return redirect()->route('dinner.create');
+        return redirect()->route('dinner.create')->with('message', '作成しました。');
     }
 
     /**
@@ -72,6 +93,11 @@ class DinnerController extends Controller
     public function edit($id)
     {
         $dinner = Dinner::find($id);
+
+        if (auth()->user()->id != $group->user_id) {
+            return redirect(route('group.index')->with('error', '許可されていない操作です'));
+        };
+
         return view("dinner.edit", [
             'dinner' => $dinner,
         ]);
@@ -86,6 +112,16 @@ class DinnerController extends Controller
     public function update(Request $request, $id)
     {
         $dinner = Dinner::find($id);
+
+        $rules = [
+            'group_id' => ['required', 'bigintger'],
+            'meal' => ['required', 'string'],
+            'side' => ['required', 'string'],
+            'soup' => ['required', 'string'],
+        ];
+
+        $this->validate($request, $rules);
+
         $dinner->fill($request->input('dinner'));
         $dinner->save();
 

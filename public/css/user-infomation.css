@@ -62,6 +62,12 @@
 
 }
 
+.user-infomation-contents form select{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
 .user-infomation-button {
     display: block;
     margin: 30px auto 0;
