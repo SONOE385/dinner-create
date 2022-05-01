@@ -23,7 +23,7 @@ class GroupController extends Controller
         // ユーザーごとのグループデータを表示
         $groups = Group::where('user_id', '=', $auth_id)->get();
 
-        return view("group_list", ['groups' => $groups]);
+        return view("group_pick", ['groups' => $groups]);
     }
 
     /**

@@ -44,7 +44,6 @@
 
                 <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/pick'">グループ一覧</button>
 
-                
 
                 @if (Route::has('login'))
                 @auth
@@ -66,7 +65,8 @@
                     @if ($dinner % 2 == 0) {<tr>}
                     <td>
                         <ul>
-                            <li>{{ $dinner->meal }}</tr>
+                            <li>
+                                {{ $dinner->meal }}</tr>
                                 {{ $dinner->side }}</tr>
                                 {{ $dinner->soup }}</tr>
                             </li>

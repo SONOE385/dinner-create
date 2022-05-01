@@ -11,7 +11,7 @@
         </div>
         <div class="group-pick-list">
            <ul class="group">
-               <a href="{{ url('/group') }}"><li>Aグループ</li></a>
+               <a href="{{ url('/show') }}"><li>Aグループ</li></a>
                <li>グループ名</li>
                <li>グループ名</li>
                <li>グループ名</li>

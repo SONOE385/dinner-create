@@ -21,6 +21,15 @@ Route::get('/editmenu', function () {
     return view('edit_menu');
 });
 
+Route::get('/pick', function () {
+    return view('group_pick');
+});
+
+Route::get('/show', function () {
+    return view('group_show');
+});
+
+
 
 Auth::routes();
 
