@@ -73,13 +73,13 @@ class GroupController extends Controller
 
         // ユーザーごとのグループデータを表示
         $dinners = Dinner::where('group_id', '=', $id)->get();
+        $group = Group::find($id);
+
         if ($user->id != $dinners[0]->user_id) {
             return redirect(route('login')->with('error', '許可されていない操作です'));
         };
 
-        return view("group_show", [
-            'dinners' => $dinners,
-        ]);
+        return view("group_show", ['dinners' => $dinners],[ 'group' => $group ]);
     }
 
     /**
