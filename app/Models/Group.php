@@ -19,5 +19,8 @@ class Group extends Model
         'name',
     ];
 
-    
+    public function dinners()
+    {
+        return $this->hasMany('App\Models\Dinner');
+    }
 }

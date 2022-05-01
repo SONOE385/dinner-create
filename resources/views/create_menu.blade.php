@@ -11,22 +11,21 @@
                     </div>
 
                     <div class="">
-                    <a href="/create_group">グループを作成する</a>
-                        <div class="row mb-3">              
-                            <div class="">
-                                <input id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
-                                <datalist id="dinner-group">
-                                    <option value="Aグループ">
-                                    <option value="Bグループ">
-                                    <option value="Cグループ">
-                                </datalist>
-
+                        <a href="{{ route('group.create') }}">グループを作成する</a>
+                        <div class="row mb-3">
+                            <div>
+                                <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
+                                    @foreach ($groups as $group)
+                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    @endforeach
+                                </select>
+                                
                                 @error('group')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div>
+                            </div>              
                         </div>
                         
                         <div class="row mb-3">                        
@@ -53,7 +52,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" placeholder="soup" required autocomplete="new-soup">
+                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" value="{{ old('soup') }}" placeholder="soup" required autocomplete="new-soup">
                                 
                                 @error('soup')
                                 <span class="invalid-feedback" role="alert">

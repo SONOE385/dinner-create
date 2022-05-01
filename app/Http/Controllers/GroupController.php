@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Group;
+use App\Models\Dinner;
 use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +17,13 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::all();
-        return view("group", ['groups' => $groups]);
+        $auth = Auth::user();
+        $auth_id = Auth::id();
+
+        // ユーザーごとのグループデータを表示
+        $groups = Group::where('user_id', '=', $auth_id)->get();
+
+        return view("group_list", ['groups' => $groups]);
     }
 
     /**
@@ -25,7 +33,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view("group-form");
+        return view("create_group");
     }
 
     /**
@@ -36,14 +44,21 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        $user=Auth::user();
+        $rules = [
+            'name' => ['required', 'string'],
+        ];
+
+        $this->validate($request, $rules);
+
+        $user = Auth::user();
 
         $group = new Group;
-        $dinner->user_id = $user->id;
+        $group->user_id = $user->id;
         $group->name = $request->name;
         $group->save();
-
-        return redirect()->route('group.create');
+        
+        // グループ作成画面に遷移
+        return redirect()->route('group.create')->with('message', '作成しました。');
     }
 
     /**
@@ -66,6 +81,11 @@ class GroupController extends Controller
     public function edit($id)
     {
         $group = Group::find($id);
+
+        if (auth()->user()->id != $group->user_id) {
+            return redirect(route('group.index')->with('error', '許可されていない操作です'));
+        };
+
         return view("group-edit", [
             'group' => $group,
         ]);
@@ -84,7 +104,8 @@ class GroupController extends Controller
         $group->fill($request->input('group'));
         $group->save();
 
-        return redirect()->route('group.edit')->with('message', '更新しました。');    }
+        return redirect()->route('group.edit')->with('message', '更新しました。');    
+    }
 
     /**
      * Remove the specified resource from storage.

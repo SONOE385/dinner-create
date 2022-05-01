@@ -16,6 +16,7 @@ class CreateDinnersTable extends Migration
         Schema::create('dinners', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('group_id')->unsigned();
             $table->string('meal');
             $table->string('side')->nullable();
             $table->string('soup')->nullable();
