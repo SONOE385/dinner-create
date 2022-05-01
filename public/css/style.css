@@ -81,6 +81,10 @@ body{
   width:100%;
 }
 
+.list-top a {
+  text-decoration: none;
+}
+
 .list-top .btn{
   background-color: #8E3330;
   color:white;

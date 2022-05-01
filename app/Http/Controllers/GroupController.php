@@ -23,7 +23,7 @@ class GroupController extends Controller
         // ユーザーごとのグループデータを表示
         $groups = Group::where('user_id', '=', $auth_id)->get();
 
-        return view("group_list", ['groups' => $groups]);
+        return view("group_pick", ['groups' => $groups]);
     }
 
     /**
@@ -69,7 +69,12 @@ class GroupController extends Controller
      */
     public function show($id)
     {
+        // ユーザーごとのグループデータを表示
+        $dinners = Dinner::where('group_id', '=', $id)->get();
 
+        return view("group_show", [
+            'dinners' => $dinners,
+        ]);
     }
 
     /**

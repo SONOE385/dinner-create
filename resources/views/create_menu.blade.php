@@ -14,8 +14,6 @@
 
                     <div class="">
 
-                       
-
                         <a href="{{ route('group.create') }}">グループを作成する</a>
                         <div class="row mb-3">
                             <div>

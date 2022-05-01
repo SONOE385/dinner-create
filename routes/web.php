@@ -35,10 +35,11 @@ Route::post('/dinner.edit', [App\Http\Controllers\DinnerController::class, 'upda
 // groupコントローラー
 
 Route::get('/list_group', [App\Http\Controllers\GroupController::class, 'index'])->name('group.index')->middleware('auth'); //middlewareを付けることによって未ログイン時は自動的にログイン画面に遷移
+Route::get('/group_show/{id}', [App\Http\Controllers\GroupController::class, 'show'])->name('group.show');
 Route::get('/create_group', [App\Http\Controllers\GroupController::class, 'create'])->name('group.create');
 Route::post('/create_group', [App\Http\Controllers\GroupController::class, 'store'])->name('group.store');
-Route::get('/group-edit', [App\Http\Controllers\GroupController::class, 'edit'])->name('group.edit');
-Route::post('/group-edit', [App\Http\Controllers\GroupController::class, 'update'])->name('group.update');
+Route::get('/group-edit/{id}', [App\Http\Controllers\GroupController::class, 'edit'])->name('group.edit');
+Route::post('/group-edit/{id}', [App\Http\Controllers\GroupController::class, 'update'])->name('group.update');
 
 // userコントローラー
 Route::group(['middleware' => 'auth'], function()
