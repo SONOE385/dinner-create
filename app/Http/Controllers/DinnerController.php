@@ -50,8 +50,6 @@ class DinnerController extends Controller
         $rules = [
             'group_id' => ['required'],
             'meal' => ['required', 'string'],
-            'side' => ['required', 'string'],
-            'soup' => ['required', 'string'],
         ];
 
         $this->validate($request, $rules);
@@ -113,13 +111,15 @@ class DinnerController extends Controller
         $dinner = Dinner::find($id);
 
         $rules = [
-            'group_id' => ['required', 'bigintger'],
+            'group_id' => ['required'],
             'meal' => ['required', 'string'],
-            'side' => ['required', 'string'],
-            'soup' => ['required', 'string'],
         ];
 
         $this->validate($request, $rules);
+
+        if (auth()->user()->id != $dinner->user_id) {
+            return redirect(route('login')->with('error', '許可されていない操作です'));
+        };
 
         $dinner->fill($request->input('dinner'));
         $dinner->save();

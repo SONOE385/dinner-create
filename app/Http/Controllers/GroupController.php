@@ -75,7 +75,8 @@ class GroupController extends Controller
         $dinners = Dinner::where('group_id', '=', $id)->get();
         $group = Group::find($id);
 
-        if ($user->id != $dinners[0]->user_id) {
+
+        if (isset($dinners[0]) && $user->id != $dinners[0]->user_id) {
             return redirect(route('login')->with('error', '許可されていない操作です'));
         };
 
@@ -93,7 +94,7 @@ class GroupController extends Controller
         $group = Group::find($id);
 
         if (auth()->user()->id != $group->user_id) {
-            return redirect(route('group.index')->with('error', '許可されていない操作です'));
+            return redirect(route('login')->with('error', '許可されていない操作です'));
         };
 
         return view("group-edit", [
@@ -111,9 +112,20 @@ class GroupController extends Controller
     public function update(Request $request, $id)
     {
         $group = Dinner::find($id);
+
+        $rules = [
+            'name' => ['required', 'string'],
+        ];
+        
+        $this->validate($request, $rules);
+        
+        if (auth()->user()->id != $group->user_id) {
+            return redirect(route('login')->with('error', '許可されていない操作です'));
+        };
+
         $group->fill($request->input('group'));
         $group->save();
-
+        
         return redirect()->route('group.edit')->with('message', '更新しました。');    
     }
 
