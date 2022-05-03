@@ -14,13 +14,15 @@
             <div class="group-list">
                 <div class="group-list-box">
                     @foreach($dinners as $dinner)
-                    <div class="list-area">
-                        <p class="text">
-                            meal-------{{ $dinner->meal }}</br>
-                            side-------{{ $dinner->side }}</br>
-                            soup-------{{ $dinner->soup }}           
-                        </p>
-                    </div>
+                    <a href="{{ route('dinner.edit', $dinner->id) }}">
+                        <div class="list-area">
+                            <p class="text">
+                                meal-------{{ $dinner->meal }}</br>
+                                side-------{{ $dinner->side }}</br>
+                                soup-------{{ $dinner->soup }}           
+                            </p>
+                        </div>
+                    </a>
                     @endforeach
                 </div>
             </div>

@@ -210,6 +210,10 @@ body{
   justify-content: space-around;
 }
 
+.group-list-box a{
+  text-decoration: none;
+}
+
 /*********献立作成・編集画面***********/
 
 .button-area{

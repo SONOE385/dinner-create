@@ -89,15 +89,17 @@ class DinnerController extends Controller
      */
     public function edit($id)
     {
-        $dinner = Dinner::find($id);
+        $auth = Auth::user();
+        $auth_id = Auth::id();
 
-        if (auth()->user()->id != $group->user_id) {
-            return redirect(route('group.index')->with('error', '許可されていない操作です'));
+        $dinner = Dinner::find($id);
+        $groups = Group::where('user_id', '=', $auth_id)->get();
+
+        if (auth()->user()->id != $dinner->user_id) {
+            return redirect(route('login')->with('error', '許可されていない操作です'));
         };
 
-        return view("dinner.edit", [
-            'dinner' => $dinner,
-        ]);
+        return view("edit_menu", ['dinner' => $dinner], ['groups' => $groups]);
     }
     /**
      * 更新メソッド
@@ -121,10 +123,14 @@ class DinnerController extends Controller
             return redirect(route('login')->with('error', '許可されていない操作です'));
         };
 
-        $dinner->fill($request->input('dinner'));
-        $dinner->save();
+        // リクエストデータ受取
+        $form = $request->all();
+        // フォームトークン削除
+        unset($form['_token']);
+        
+        $dinner->fill($form)->save();
 
-        return redirect()->route('dinners.edit')->with('message', '更新しました。');
+        return redirect()->route('group.index')->with('message', '更新しました。');
     }
 
     /**
