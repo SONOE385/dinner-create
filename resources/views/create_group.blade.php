@@ -5,7 +5,7 @@
     <div class="main-container">
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('group.store') }}">
                     @csrf
                     <div class="user-infomation-title">
                     グループ作成
@@ -14,7 +14,7 @@
                     <div class="">
                         <div class="row mb-3">              
                             <div class="">
-                                <input id="group" type="text" class="form-control @error('group') is-invalid @enderror" name="group" value="{{ old('group') }}" placeholder="グループ名を入力" required autocomplete="group" autofocus>
+                                <input id="group" type="text" class="form-control @error('group') is-invalid @enderror" name="name" value="{{ old('group') }}" placeholder="グループ名を入力" required autocomplete="group" autofocus>
                                 @error('group')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

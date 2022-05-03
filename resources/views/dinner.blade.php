@@ -41,14 +41,14 @@
             <img src="/image/icon2.png" class="icon2" alt="">
 
             <div class="list-top">
-
-                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/pick'">グループ一覧</button>
-
-                
-
+                <a href="{{ route('group.index') }}">
+                    <button type="button" class="btn btn-lg rounded-pill">グループ一覧</button>
+                </a>
                 @if (Route::has('login'))
                 @auth
-                <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/create'">献立作成</button>
+                <a href="{{ route('dinner.create') }}">
+                    <button type="button" class="btn btn-lg rounded-pill" onclick="location.href='/create'">献立作成</button>
+                </a>
                 @else
                 <a href="{{ route('register') }}">
                     <button type="button" class="btn btn-lg rounded-pill">会員登録</button>
@@ -59,36 +59,16 @@
 
             <div class="list-title">--------   献立一覧   --------</div>
 
-            {{--<div class="list-box">
-                @foreach($dinners as $dinner
-                <div class="list-area">
-                <table>
-                    @if ($dinner % 2 == 0) {<tr>}
-                    <td>
-                        <ul>
-                            <li>{{ $dinner->meal }}</tr>
-                                {{ $dinner->side }}</tr>
-                                {{ $dinner->soup }}</tr>
-                            </li>
-                        </ul>
-                    </td>
-                    @if ($dinner % 2 == 1) {</tr>}
-                 @endif
-                </table>
-                
-                <a href="/editmenu">
+            <div class="list-box">
+                @foreach($dinners as $dinner)
                     <div class="list-area">
-
                         <p class="text">
-                            main-------ハンバーグ</br>
-                            side-------サラダ</br>
-                            soup-------コンソメスープ           
+                            main-------{{ $dinner->meal }}</br>
+                            side-------{{ $dinner->side }}</br>
+                            soup-------{{ $dinner->soup }}           
                         </p>
-                        <div class="delete">
-                            <a href="">削除</a>
-                        </div>
                     </div>
-                </a>--}}
+                @endforeach
             </div>
         </div>
         <div class="footer"></div>

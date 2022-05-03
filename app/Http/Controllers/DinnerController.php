@@ -20,8 +20,7 @@ class DinnerController extends Controller
         $auth_id = Auth::id();
 
         // ユーザーごとのグループデータを表示
-        $dinners = Dinner::where('user_id', '=', $auth_id)->get();
-
+        $dinners = Dinner::select('meal', 'side', 'soup')->latest()->limit(10)->get();
 
         return view("dinner", ['dinners' => $dinners]);
     }
@@ -49,10 +48,8 @@ class DinnerController extends Controller
     public function store(Request $request)
     {   
         $rules = [
-            'group_id' => ['required', 'bigintger'],
+            'group_id' => ['required'],
             'meal' => ['required', 'string'],
-            'side' => ['required', 'string'],
-            'soup' => ['required', 'string'],
         ];
 
         $this->validate($request, $rules);
@@ -92,15 +89,17 @@ class DinnerController extends Controller
      */
     public function edit($id)
     {
-        $dinner = Dinner::find($id);
+        $auth = Auth::user();
+        $auth_id = Auth::id();
 
-        if (auth()->user()->id != $group->user_id) {
-            return redirect(route('group.index')->with('error', '許可されていない操作です'));
+        $dinner = Dinner::find($id);
+        $groups = Group::where('user_id', '=', $auth_id)->get();
+
+        if (auth()->user()->id != $dinner->user_id) {
+            return redirect(route('login')->with('error', '許可されていない操作です'));
         };
 
-        return view("dinner.edit", [
-            'dinner' => $dinner,
-        ]);
+        return view("edit_menu", ['dinner' => $dinner], ['groups' => $groups]);
     }
     /**
      * 更新メソッド
@@ -114,18 +113,24 @@ class DinnerController extends Controller
         $dinner = Dinner::find($id);
 
         $rules = [
-            'group_id' => ['required', 'bigintger'],
+            'group_id' => ['required'],
             'meal' => ['required', 'string'],
-            'side' => ['required', 'string'],
-            'soup' => ['required', 'string'],
         ];
 
         $this->validate($request, $rules);
 
-        $dinner->fill($request->input('dinner'));
-        $dinner->save();
+        if (auth()->user()->id != $dinner->user_id) {
+            return redirect(route('login')->with('error', '許可されていない操作です'));
+        };
 
-        return redirect()->route('dinners.edit')->with('message', '更新しました。');
+        // リクエストデータ受取
+        $form = $request->all();
+        // フォームトークン削除
+        unset($form['_token']);
+        
+        $dinner->fill($form)->save();
+
+        return redirect()->route('group.index')->with('message', '更新しました。');
     }
 
     /**
@@ -139,6 +144,6 @@ class DinnerController extends Controller
         $dinner = Dinner::find($id);
         $dinner->delete();
 
-        return redirect()->route('dinners.index')->with('message', '削除しました。');
+        return redirect()->route('dinner.index')->with('message', '削除しました。');
     }
 }

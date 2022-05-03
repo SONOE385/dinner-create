@@ -7,7 +7,7 @@
     <div class="main-container">
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('dinner.update', $dinner->id) }}">
                     @csrf
                     <div class="user-infomation-title">
                     献立編集
@@ -16,13 +16,11 @@
                     <div class="">
                         <div class="row mb-3">              
                             <div class="">
-                                <input id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
-                                <datalist id="dinner-group">
-                                    <option value="Aグループ">
-                                    <option value="Bグループ">
-                                    <option value="Cグループ">
-                                </datalist>
-
+                                <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" placeholder="group" required autocomplete="group" autofocus>
+                                    @foreach ($groups as $group)
+                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    @endforeach
+                                </select>
                                 @error('group')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -33,8 +31,8 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input action="" id="main" type="text" class="form-control @error('main') is-invalid @enderror" name="main" value="{{ old('main') }}" placeholder="main" required autocomplete="main" autofocus>
-                                @error('main')
+                                <input action="" id="meal" type="text" class="form-control @error('meal') is-invalid @enderror" name="meal" value="{{ $dinner->meal }}" placeholder="meal" required autocomplete="meal">
+                                @error('meal')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -44,7 +42,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input id="side" type="side" class="form-control @error('side') is-invalid @enderror" name="side" value="{{ old('side') }}" placeholder="side" required autocomplete="side">
+                                <input id="side" type="side" class="form-control @error('side') is-invalid @enderror" name="side" value="{{ $dinner->side }}" placeholder="side" autocomplete="side">
                                 @error('side')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -55,7 +53,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" placeholder="soup" required autocomplete="new-soup">
+                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" placeholder="soup" value="{{ $dinner->side }}" autocomplete="new-soup">
                                 
                                 @error('soup')
                                 <span class="invalid-feedback" role="alert">

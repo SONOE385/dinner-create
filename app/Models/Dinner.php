@@ -16,6 +16,7 @@ class Dinner extends Model
      */
     protected $fillable = [
         'user_id',
+        'group_id',
         'meal',
         'side',
         'soup',
