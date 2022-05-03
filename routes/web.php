@@ -13,20 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dinner');
-});
-
-Route::get('/editmenu', function () {
-    return view('edit_menu');
-});
-
-
 Auth::routes();
 
 // dinnerコントローラー
 
-Route::get('/dinner', [App\Http\Controllers\DinnerController::class, 'index'])->name('dinner.index');
+Route::get('/', [App\Http\Controllers\DinnerController::class, 'index'])->name('dinner.index');
 Route::post('/create', [App\Http\Controllers\DinnerController::class, 'store'])->name('dinner.store');
 Route::get('/create', [App\Http\Controllers\DinnerController::class, 'create'])->name('dinner.create');
 Route::get('/dinner.edit/{id}', [App\Http\Controllers\DinnerController::class, 'edit'])->name('dinner.edit');

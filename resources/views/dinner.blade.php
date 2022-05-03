@@ -59,36 +59,16 @@
 
             <div class="list-title">--------   献立一覧   --------</div>
 
-            {{--<div class="list-box">
-                @foreach($dinners as $dinner
-                <div class="list-area">
-                <table>
-                    @if ($dinner % 2 == 0) {<tr>}
-                    <td>
-                        <ul>
-                            <li>{{ $dinner->meal }}</tr>
-                                {{ $dinner->side }}</tr>
-                                {{ $dinner->soup }}</tr>
-                            </li>
-                        </ul>
-                    </td>
-                    @if ($dinner % 2 == 1) {</tr>}
-                 @endif
-                </table>
-                
-                <a href="/editmenu">
+            <div class="list-box">
+                @foreach($dinners as $dinner)
                     <div class="list-area">
-
                         <p class="text">
-                            main-------ハンバーグ</br>
-                            side-------サラダ</br>
-                            soup-------コンソメスープ           
+                            main-------{{ $dinner->meal }}</br>
+                            side-------{{ $dinner->side }}</br>
+                            soup-------{{ $dinner->soup }}           
                         </p>
-                        <div class="delete">
-                            <a href="">削除</a>
-                        </div>
                     </div>
-                </a>--}}
+                @endforeach
             </div>
         </div>
         <div class="footer"></div>

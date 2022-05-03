@@ -20,7 +20,7 @@ class DinnerController extends Controller
         $auth_id = Auth::id();
 
         // ユーザーごとのグループデータを表示
-        $dinners = Dinner::where('user_id', '=', $auth_id)->get();
+        $dinners = Dinner::select('meal', 'side', 'soup')->latest()->limit(10)->get();
 
         return view("dinner", ['dinners' => $dinners]);
     }
@@ -144,6 +144,6 @@ class DinnerController extends Controller
         $dinner = Dinner::find($id);
         $dinner->delete();
 
-        return redirect()->route('dinners.index')->with('message', '削除しました。');
+        return redirect()->route('dinner.index')->with('message', '削除しました。');
     }
 }
