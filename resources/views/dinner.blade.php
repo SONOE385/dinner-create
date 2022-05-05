@@ -41,9 +41,7 @@
             <img src="/image/icon2.png" class="icon2" alt="">
 
             <div class="list-top">
-                <a href="{{ route('group.index') }}">
-                    <button type="button" class="btn btn-lg rounded-pill">グループ一覧</button>
-                </a>
+
                 @if (Route::has('login'))
                 @auth
                 <a href="{{ route('dinner.create') }}">
@@ -59,8 +57,15 @@
 
             <div class="list-title">--------   献立一覧   --------</div>
 
+
+                   
+                
+                
+                <a href="/editmenu">
+
             <div class="list-box">
                 @foreach($dinners as $dinner)
+                    @if ($dinner % 2 == 0) {<tr>}
                     <div class="list-area">
                         <p class="text">
                             main-------{{ $dinner->meal }}</br>
@@ -68,6 +73,8 @@
                             soup-------{{ $dinner->soup }}           
                         </p>
                     </div>
+                      @if ($dinner % 2 == 1) {</tr>}
+                    @endif
                 @endforeach
             </div>
         </div>

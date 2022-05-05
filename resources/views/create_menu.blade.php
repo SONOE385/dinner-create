@@ -19,7 +19,10 @@
 
                     <div class="">
 
+
+
                         <a href="{{ route('group.create') }}">グループを作成する</a>
+
                         <div class="row mb-3">
                             <div>
                                 <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
@@ -28,7 +31,6 @@
                                     @endforeach
                                 </select>
                                 
-
                                 @error('group')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -37,7 +39,7 @@
                             </div>              
                         </div>
                         <div class="link">
-                            <a href="/create_group">グループ作成はこちら</a>
+                            <a href="{{ route('group.create') }}">グループ作成はこちら</a>
                         </div>
 
                         
