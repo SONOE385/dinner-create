@@ -81,6 +81,10 @@ body{
   width:100%;
 }
 
+.list-top a {
+  text-decoration: none;
+}
+
 .list-top .btn{
   background-color: #8E3330;
   color:white;
@@ -105,13 +109,15 @@ body{
 }
 
 .list-box a{
-  color:#0f0f0d
+  color:#0f0f0d;
+  text-decoration: none;
 }
 
 .list-box{
   width:85%;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin: 0 auto;
   margin-top:130px;
   text-align: center;
@@ -124,6 +130,7 @@ body{
   width:380px;
   height:200px;
   padding: 0.5em 1em;
+  margin-bottom: 30px;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -181,6 +188,7 @@ body{
 }
 
 .group-area{
+  margin-bottom: 10px;
   height:500px;
   overflow:auto;
   background-color: rgba(255,255,255, 0.8);
@@ -198,9 +206,14 @@ body{
 .group-list-box{
   width:82%;
   display: flex;
+  flex-wrap: wrap;
   padding-top:20px;
   margin: 0 auto;
   justify-content: space-around;
+}
+
+.group-list-box a{
+  text-decoration: none;
 }
 
 /*********献立作成・編集画面***********/
@@ -275,5 +288,19 @@ body{
 
 .group a{
   text-decoration: none;
+}
+
+/* 献立登録時メッセージ */
+.update-alert {
+  position: absolute;
+  padding: 20px 10%;
+  top: 20%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  border-color: rgb(228, 0, 0);
+  font-size: 16px;
 }
 

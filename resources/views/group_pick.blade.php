@@ -11,13 +11,9 @@
         </div>
         <div class="group-pick-list">
            <ul class="group">
-               <a href="{{ url('/show') }}"><li>Aグループ</li></a>
-               <li>グループ名</li>
-               <li>グループ名</li>
-               <li>グループ名</li>
-               <li>グループ名</li>
-               <li>グループ名</li>
-               <li>グループ名</li>
+               @foreach($groups as $group)
+               <a href="{{ route('group.show', $group->id) }}"><li>{{ $group->name }}</li></a>
+               @endforeach
            </ul>
         </div>
 

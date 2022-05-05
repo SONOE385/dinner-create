@@ -3,6 +3,11 @@
 @section('title','献立登録')
 
 @section('content')
+@if (session('message'))
+        <div class="alert alert-danger update-alert">
+            献立登録ができました。
+        </div>
+    @endif
     <div class="main-container">
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
@@ -13,6 +18,11 @@
                     </div>
 
                     <div class="">
+
+
+
+                        <a href="{{ route('group.create') }}">グループを作成する</a>
+
                         <div class="row mb-3">
                             <div>
                                 <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
@@ -35,8 +45,8 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input action="" id="main" type="text" class="form-control @error('main') is-invalid @enderror" name="main" value="{{ old('main') }}" placeholder="main" required autocomplete="main" autofocus>
-                                @error('main')
+                                <input action="" id="meal" type="text" class="form-control @error('meal') is-invalid @enderror" name="meal" value="{{ old('meal') }}" placeholder="meal" required autocomplete="meal" autofocus>
+                                @error('meal')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
