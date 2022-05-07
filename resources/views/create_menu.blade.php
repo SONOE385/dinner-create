@@ -18,11 +18,6 @@
                     </div>
 
                     <div class="">
-
-
-
-                        <a href="{{ route('group.create') }}">グループを作成する</a>
-
                         <div class="row mb-3">
                             <div>
                                 <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
