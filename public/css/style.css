@@ -24,18 +24,19 @@ body{
   padding:30px 0 30px 0;
 }
 
-.title-area a{
-  color:#0f0f0d;
-  font-size: 1.5rem;
-  text-decoration: none;
+.title-area .title-img{
+  width:25%;
+  margin-right: -75px;
+  margin-top: 10px;
 }
 
-.title-area a:hover{
-  color:#95998b;
+.title-area a img{
+  width: 100%;
 }
 
 .icon1{
-  width:60px;
+  margin-top: 5px;
+  width:50px;
 }
 
 .icon1 img{
@@ -72,6 +73,11 @@ body{
   text-align: center;
 }
 
+.main a{
+  color:#0f0f0d;
+  text-decoration: none;
+}
+
 .icon2{
   width:12%;
   margin:60px 0 60px 0;
@@ -103,18 +109,17 @@ body{
 }
 
 .list-title{
-  padding:50px 0 40px 80px;
-  float:left;
-  font-size: 15px;
+  width: 300px;
+  margin: 50px 0 50px 100px;
 }
 
-.list-box a{
-  color:#0f0f0d;
-  text-decoration: none;
+.list-title img{
+  width: 100%;
+  float:left;
 }
 
 .list-box{
-  width:85%;
+  width:75%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -137,11 +142,27 @@ body{
   flex-direction: column;
 }
 
-.list-area:hover{
-  background-color: rgba(252, 251, 108, 0.6);
-  box-shadow: 0 0 8px #fcfb6c;
-  border:1px solid #e0a128;
-  transition : .1s;
+.edit-area{
+  width: 100%;
+}
+
+.edit-area-icon{
+  display: flex;
+  width:50px;
+  margin: 0 0 0 auto;
+}
+
+.edit-area .edit{
+  width:20px;
+  margin-right: 5px;
+}
+
+.edit-area .del{
+  width:20px;
+}
+
+.edit-area-icon a img{
+  width:100%;
 }
 
 .text{
@@ -172,19 +193,35 @@ body{
 }
 
 /*********グループ画面***********/
-.group-name{
+.my-group{
   background-color: rgba(31, 30, 30, 0.8);
   border-radius: 5px;
-  padding:15px;
-  margin:0 auto;
-  margin-bottom: 0;
+  margin: 0 auto;
   max-width: 1000px;
+  width: 100%;
+  color:white;
+  display: flex;
+  text-align: center;
+}
+
+.group-name{
+  border-radius: 5px;
+  padding:20px 0;
+  margin:0 auto;
   width: 100%;
   color:white;
   text-align: center;
   font-family: 'MV Boil';
   font-weight: bold;
-  font-size: 25px;
+  font-size: 22px;
+}
+
+.my-group h1{
+  width: 100%;
+  font-family: 'MV Boil';
+  font-weight: bold;
+  margin: 0 auto;
+  margin-left: 35px;
 }
 
 .group-area{
@@ -199,22 +236,31 @@ body{
   color:white;
 }
 
-.group-list{
-  width:100%;
+.group-edit-area{
+  width: 10%;
+}
+
+.group-edit-area .edit-area-icon{
+  margin-top: 50px;
+  margin-right: 5px;
+
 }
 
 .group-list-box{
-  width:82%;
-  display: flex;
-  flex-wrap: wrap;
-  padding-top:20px;
-  margin: 0 auto;
-  justify-content: space-around;
-}
+    width:85%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top:30px;
+    text-align: center;
+  }
 
 .group-list-box a{
-  text-decoration: none;
+    text-decoration: none;
 }
+
+
 
 /*********献立作成・編集画面***********/
 
@@ -225,6 +271,22 @@ body{
   justify-content: space-around;
 }
 
+.reverse{
+height: 60px;
+width: 110px;
+padding: 20px;
+}
+
+.reverse a{
+  text-decoration: none;
+}
+
+.main-container img{
+  width: 30px;
+  margin-right: 5px;
+}
+
+
 /*********グループ選択画面***********/
 .my-group-body{
   width:100%;
@@ -232,24 +294,25 @@ body{
 	transform: translate(-50%, -50%);
   top: 50%;
 	left: 50%;
-
 }
 
-.my-group{
+.pick-my-group{
   background-color: rgba(31, 30, 30, 0.8);
-  padding:20px;
+  padding: 15px;
   border-radius: 5px;
   margin: 0 auto;
   max-width: 1000px;
   width: 100%;
   color:white;
+  display: flex;
   text-align: center;
 }
 
-.my-group h1{
+.pick-my-group h1{
+  width: 50%;
   font-family: 'MV Boil';
   font-weight: bold;
-  margin-bottom:0;
+  margin: 0 auto;
 }
 
 .group-pick-list{

@@ -5,6 +5,10 @@
 @section('content')
 <div class="body">
     <div class="main-container">
+        <div class="reverse">
+            <a href="{{ route('group.index') }}" style="color:white;"><img src="/image/矢印ボタン.png" alt="">戻る</a>
+        </div>
+
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
                 <form method="POST" action="{{ route('dinner.update', $dinner->id) }}">
@@ -53,7 +57,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" placeholder="soup" value="{{ $dinner->side }}" autocomplete="new-soup">
+                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" placeholder="soup" value="{{ $dinner->soup }}" autocomplete="new-soup">
                                 
                                 @error('soup')
                                 <span class="invalid-feedback" role="alert">

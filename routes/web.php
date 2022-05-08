@@ -22,6 +22,7 @@ Route::post('/create', [App\Http\Controllers\DinnerController::class, 'store'])-
 Route::get('/create', [App\Http\Controllers\DinnerController::class, 'create'])->name('dinner.create');
 Route::get('/dinner.edit/{id}', [App\Http\Controllers\DinnerController::class, 'edit'])->name('dinner.edit');
 Route::post('/dinner.edit/{id}', [App\Http\Controllers\DinnerController::class, 'update'])->name('dinner.update');
+Route::get('/dinner.del/{id}', [App\Http\Controllers\DinnerController::class, 'destroy'])->name('dinner.destroy');
 
 // groupコントローラー
 
@@ -31,6 +32,8 @@ Route::get('/create_group', [App\Http\Controllers\GroupController::class, 'creat
 Route::post('/create_group', [App\Http\Controllers\GroupController::class, 'store'])->name('group.store');
 Route::get('/group-edit/{id}', [App\Http\Controllers\GroupController::class, 'edit'])->name('group.edit');
 Route::post('/group-edit/{id}', [App\Http\Controllers\GroupController::class, 'update'])->name('group.update');
+Route::get('/group-del/{id}', [App\Http\Controllers\GroupController::class, 'destroy'])->name('group.destroy');
+
 
 // userコントローラー
 Route::group(['middleware' => 'auth'], function()
