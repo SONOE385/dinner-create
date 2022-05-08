@@ -39,7 +39,6 @@
             </div>  
         </div>
         <div class="main">
-            <!-- <a href="{{ route('user.edit') }}">テストテスト</a> -->
 
             <img src="/image/icon2.png" class="icon2" alt="">
 
@@ -59,6 +58,7 @@
                 @endauth
                 @endif
             </div>
+
 
             <div class="list-title"><img src="/image/アセット 2.png" alt=""></div>
 
