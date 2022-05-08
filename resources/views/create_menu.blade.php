@@ -8,9 +8,14 @@
             献立登録ができました。
         </div>
     @endif
+
     <div class="main-container">
+        <div class="reverse">
+            <a href="{{ route('dinner.index') }}" style="color:white;"><img src="/image/矢印ボタン.png" alt="">戻る</a>
+        </div>
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
+
                 <form method="POST" action="{{ route('dinner.store') }}">
                     @csrf
                     <div class="user-infomation-title">
@@ -18,12 +23,7 @@
                     </div>
 
                     <div class="">
-
-
-
-                        <a href="{{ route('group.create') }}">グループを作成する</a>
-
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <div>
                                 <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
                                     @foreach ($groups as $group)

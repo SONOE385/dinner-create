@@ -13,7 +13,7 @@
     font-size:25px;
     text-align: center;
     padding: 0 0 30px;
-    color: brown;
+    color: #0f0f0d;
 }
 
 .user-infomation-contents {
@@ -22,8 +22,7 @@
     border: 0.5px solid gray;
     padding: 40px 0;
     box-shadow: 0 0 8px gray;
-    background-color: white;
-
+    background-color: rgba(255,255,255, 0.8);
     /***フォームを上下左右の中央に配置***/
     position: absolute;
 	top: 50%;
@@ -43,7 +42,7 @@
 }
 
 .user-infomation-contents a:hover{
-    background: #fcfb6c;
+    background: rgb(153, 146, 26, 25%);
 }
 
 

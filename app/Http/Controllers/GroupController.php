@@ -97,7 +97,7 @@ class GroupController extends Controller
             return redirect(route('login')->with('error', '許可されていない操作です'));
         };
 
-        return view("group-edit", [
+        return view("edit_group", [
             'group' => $group,
         ]);
     }
