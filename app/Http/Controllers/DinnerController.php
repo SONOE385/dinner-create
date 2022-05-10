@@ -19,8 +19,9 @@ class DinnerController extends Controller
         $auth = Auth::user();
         $auth_id = Auth::id();
 
-        // ユーザーごとのグループデータを表示
-        $dinners = Dinner::select('id','meal', 'side', 'soup')->latest()->limit(10)->get();
+        $dinners = Dinner::where('user_id', '=', $auth_id)->get();
+        // // ユーザーごとのグループデータを表示
+        // $dinners = Dinner::select('id','meal', 'side', 'soup')->latest()->limit(10)->get();
 
         return view("dinner", ['dinners' => $dinners]);
     }
