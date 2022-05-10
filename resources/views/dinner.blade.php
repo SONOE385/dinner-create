@@ -7,8 +7,12 @@
 <body class="container" style="background-color:#F1EFE8" >
         <div class="header">
             <div class="title-area">
-                <a href="">create dinner menu</a>
-                <img src="/image/icon1.png" class="icon1" alt="">
+               <a href="" class="title-img"><img src="/image/title.png" alt=""></a>
+
+               <div class="icon1">
+                <img src="/image/icon1.png" alt="">
+               </div>
+
                 <div class="auth-path">
                 @if (Route::has('login'))
                     @auth
@@ -20,7 +24,6 @@
                     <a href="{{ route('login') }}" class="login-edit-button">
                         <button type="button" class="btn">ログイン</button>
                     </a>
-
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="login-edit-button">
                         <button type="button" class="btn">新規登録</button>
@@ -56,18 +59,26 @@
                 @endif
             </div>
 
-            <div class="list-title">--------   献立一覧   --------</div>
-            <div class="list-box">
-                @foreach($dinners as $dinner)
-                    <div class="list-area">
-                        <p class="text">
-                            main-------{{ $dinner->meal }}</br>
-                            side-------{{ $dinner->side }}</br>
-                            soup-------{{ $dinner->soup }}           
-                        </p>
-                    </div>
-                @endforeach
-            </div>
+
+            <div class="list-title"><img src="/image/アセット 2.png" alt=""></div>
+
+                <div class="list-box">
+                    @foreach($dinners as $dinner)
+                            <div class="list-area">
+                                <p class="text">
+                                    main-------{{ $dinner->meal }}</br>
+                                    side-------{{ $dinner->side }}</br>
+                                    soup-------{{ $dinner->soup }}           
+                                </p>
+                                <div class="edit-area">
+                                    <div class="edit-area-icon">
+                                        <a href="/dinner.edit/{{ $dinner->id }}" class="edit"><img src="/image/edit-icon.png" alt=""></a>
+                                        <a href="/dinner.del/{{ $dinner->id }}" class="del"><img src="/image/del-icon.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                    @endforeach
+                </div>
         </div>
         <div class="footer"></div>
 </body>

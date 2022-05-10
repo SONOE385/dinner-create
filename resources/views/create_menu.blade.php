@@ -8,9 +8,14 @@
             献立登録ができました。
         </div>
     @endif
+
     <div class="main-container">
+        <div class="reverse">
+            <a href="{{ route('dinner.index') }}" style="color:white;"><img src="/image/矢印ボタン.png" alt="">戻る</a>
+        </div>
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
+
                 <form method="POST" action="{{ route('dinner.store') }}">
                     @csrf
                     <div class="user-infomation-title">
