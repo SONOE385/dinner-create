@@ -111,6 +111,7 @@ class DinnerController extends Controller
     public function update(Request $request, $id)
     {
         $dinner = Dinner::find($id);
+        $id = $dinner->group_id;
 
         $rules = [
             'group_id' => ['required'],
@@ -130,7 +131,7 @@ class DinnerController extends Controller
         
         $dinner->fill($form)->save();
 
-        return redirect()->route('group.index')->with('message', '更新しました。');
+        return redirect()->route('group.show', $id)->with('message', '更新しました。');
     }
 
     /**
