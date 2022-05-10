@@ -23,6 +23,12 @@ class DinnerController extends Controller
         // // ユーザーごとのグループデータを表示
         // $dinners = Dinner::select('id','meal', 'side', 'soup')->latest()->limit(10)->get();
 
+        foreach($dinners as $dinner){
+            if ($auth_id !== $dinner->user_id) {
+                return redirect()->route('login')->with('error', '許可されていない操作です');
+            };
+        };
+
         return view("dinner", ['dinners' => $dinners]);
     }
 
@@ -96,8 +102,14 @@ class DinnerController extends Controller
         $dinner = Dinner::find($id);
         $groups = Group::where('user_id', '=', $auth_id)->get();
 
-        if (auth()->user()->id != $dinner->user_id) {
-            return redirect(route('login')->with('error', '許可されていない操作です'));
+        if ($auth_id !== $dinner->user_id) {
+            return redirect()->route('login')->with('error', '許可されていない操作です');
+        };
+
+        foreach($groups as $group){
+            if ($auth_id !== $group->user_id) {
+                return redirect()->route('login')->with('error', '許可されていない操作です');
+            };
         };
 
         return view("edit_menu", ['dinner' => $dinner], ['groups' => $groups]);
@@ -111,6 +123,9 @@ class DinnerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $auth = Auth::user();
+        $auth_id = Auth::id();
+
         $dinner = Dinner::find($id);
         $id = $dinner->group_id;
 
@@ -121,8 +136,8 @@ class DinnerController extends Controller
 
         $this->validate($request, $rules);
 
-        if (auth()->user()->id != $dinner->user_id) {
-            return redirect(route('login')->with('error', '許可されていない操作です'));
+        if ($auth_id !== $dinner->user_id) {
+            return redirect()->route('login')->with('error', '許可されていない操作です');
         };
 
         // リクエストデータ受取
@@ -144,6 +159,12 @@ class DinnerController extends Controller
     public function destroy($id)
     {
         $dinner = Dinner::find($id);
+        $auth_id = Auth::id();
+
+        if ($auth_id !== $dinner->user_id) {
+            return redirect()->route('login')->with('error', '許可されていない操作です');
+        };
+
         $dinner->delete();
 
         return redirect()->route('dinner.index')->with('message', '削除しました。');
