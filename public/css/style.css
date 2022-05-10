@@ -17,6 +17,10 @@ body{
   width: 100%;
 }
 
+.header a{
+  text-decoration: none;
+}
+
 .title-area{
   color:#8E3330;
   display: flex;

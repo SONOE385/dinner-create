@@ -58,7 +58,7 @@ class GroupController extends Controller
         $group->save();
         
         // グループ作成画面に遷移
-        return redirect()->route('group.index');
+        return redirect()->route('dinner.create');
     }
 
     /**
@@ -76,8 +76,14 @@ class GroupController extends Controller
         $group = Group::find($id);
 
 
-        if (isset($dinners[0]) && $user->id != $dinners[0]->user_id) {
-            return redirect(route('login')->with('error', '許可されていない操作です'));
+        if ($user->id !== $group->user_id) {
+            return redirect()->route('login')->with('error', '許可されていない操作です');
+        };
+
+        foreach($dinners as $dinner){
+            if ($user->id !== $dinner->user_id) {
+                return redirect()->route('login')->with('error', '許可されていない操作です');
+            };
         };
 
         return view("group_show", ['dinners' => $dinners],[ 'group' => $group ]);
@@ -91,10 +97,11 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
         $group = Group::find($id);
 
-        if (auth()->user()->id != $group->user_id) {
-            return redirect(route('login')->with('error', '許可されていない操作です'));
+        if ($user->id !== $group->user_id or $user->id !== $group->user_id) {
+            return redirect()->route('login')->with('error', '許可されていない操作です');
         };
 
         return view("edit_group", [
@@ -111,7 +118,8 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $group = Dinner::find($id);
+        $user = Auth::user();
+        $group = Group::find($id);
 
         $rules = [
             'name' => ['required', 'string'],
@@ -119,8 +127,8 @@ class GroupController extends Controller
         
         $this->validate($request, $rules);
         
-        if (auth()->user()->id != $group->user_id) {
-            return redirect(route('login')->with('error', '許可されていない操作です'));
+        if ($user->id !== $group->user_id) {
+            return redirect()->route('login')->with('error', '許可されていない操作です');
         };
 
         $group->fill($request->input('group'));
@@ -137,7 +145,12 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
+        $user = Auth::user();
         $group = Group::find($id);
+        if ($user->id !== $group->user_id) {
+            return redirect()->route('login')->with('error', '許可されていない操作です');
+        };
+
         $group->delete();
 
         return redirect()->route('group.index')->with('message', '削除しました。');
