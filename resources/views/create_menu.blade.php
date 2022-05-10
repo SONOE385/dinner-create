@@ -3,7 +3,7 @@
 @section('title','献立登録')
 
 @section('content')
-@if (session('message'))
+    @if (session('message'))
         <div class="alert alert-danger update-alert">
             献立登録ができました。
             <a href="{{ route('group.index') }}">グループ一覧画面へ</a>
