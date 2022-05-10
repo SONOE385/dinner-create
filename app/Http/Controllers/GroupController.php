@@ -75,8 +75,7 @@ class GroupController extends Controller
         $dinners = Dinner::where('group_id', '=', $id)->get();
         $group = Group::find($id);
 
-
-        if ($user->id !== $group->user_id) {
+        if (!isset($group) OR $user->id !== $group->user_id) {
             return redirect()->route('login')->with('error', '許可されていない操作です');
         };
 
