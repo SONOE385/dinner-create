@@ -202,30 +202,26 @@ body{
   border-radius: 5px;
   margin: 0 auto;
   max-width: 1000px;
-  width: 100%;
+  width: 90%;
   color:white;
   display: flex;
   text-align: center;
 }
 
 .group-name{
-  border-radius: 5px;
   padding:20px 0;
-  margin:0 auto;
-  width: 100%;
-  color:white;
+  width: 50%;
   text-align: center;
-  font-family: 'MV Boil';
-  font-weight: bold;
   font-size: 22px;
+  margin:0 auto;
+
 }
 
-.my-group h1{
-  width: 100%;
+.group-name h1{
   font-family: 'MV Boil';
   font-weight: bold;
   margin: 0 auto;
-  margin-left: 35px;
+  margin-left: 40px;
 }
 
 .group-area{
@@ -236,7 +232,7 @@ body{
   border-radius: 5px;
   margin: 0 auto;
   max-width: 1000px;
-  width: 100%;
+  width: 90%;
   color:white;
 }
 
@@ -264,6 +260,22 @@ body{
     text-decoration: none;
 }
 
+.group-list-area{
+  color: #0f0f0d;
+  background: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  width:350px;
+  height:200px;
+  padding: 0.1em 0.2em;
+  margin-bottom: 30px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
 
 
 /*********献立作成・編集画面***********/
@@ -276,9 +288,9 @@ body{
 }
 
 .reverse{
-height: 60px;
-width: 110px;
-padding: 20px;
+  height: 60px;
+  width: 110px;
+  padding: 20px;
 }
 
 .reverse a{
@@ -293,7 +305,7 @@ padding: 20px;
 
 /*********グループ選択画面***********/
 .my-group-body{
-  width:100%;
+  width:80%;
   position: absolute;
 	transform: translate(-50%, -50%);
   top: 50%;
