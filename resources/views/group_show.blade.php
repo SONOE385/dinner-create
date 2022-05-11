@@ -25,7 +25,7 @@
         <div class="group-area">
                 <div class="group-list-box">    
                     @foreach($dinners as $dinner)
-                        <div class="list-area">
+                        <div class="group-list-area">
                             <p class="text">
                                 meal-------{{ $dinner->meal }}</br>
                                 side-------{{ $dinner->side }}</br>
