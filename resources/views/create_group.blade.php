@@ -11,9 +11,9 @@
             <div class="user-infomation-contents">
                 <form method="POST" action="{{ route('group.store') }}">
                     @csrf
-                    <div class="user-infomation-title">
-                    グループ作成
-                    </div>
+                    <div class="user-infomation-title-user">
+                        <img src="/image/create-group.png" alt="">
+                    </div>          
 
                     <div class="">
                         <div class="row mb-3">              

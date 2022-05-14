@@ -5,8 +5,6 @@
 /***********ボディ***********/
 body{
   max-width:100%;
-
-
 /************フォントの一括変更***********/
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-style: italic;
@@ -25,7 +23,14 @@ body{
   color:#8E3330;
   display: flex;
   justify-content: space-around;
-  padding:30px 0 30px 0;
+  padding:30px 0 20px 0;
+  background-color: #F1EFE8;
+  width: 100%; /* 幅いっぱいを指定 */
+  box-sizing: border-box; /* padding分を含んで幅を100%にするため */
+  position: fixed; /* ウィンドウを基準に画面に固定 */
+  top: 0; /* 上下の固定位置を上から0pxにする */
+  left: 0; /* 左右の固定位置を左から0pxにする */
+  display: flex; /* 中の要素を横並びにする */
 }
 
 .title-area .title-img{
@@ -65,6 +70,8 @@ body{
 .images{
   width:100%;
   text-align: center;
+  padding-top: 100px;
+
 }
 
 .images img{
@@ -113,7 +120,7 @@ body{
 }
 
 .list-title{
-  width: 300px;
+  width: 30%;
   margin: 50px 0 50px 100px;
 }
 
@@ -209,19 +216,18 @@ body{
 }
 
 .group-name{
-  padding:20px 0;
+  padding:30px 0 20px 0;
   width: 50%;
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   margin:0 auto;
 
 }
 
 .group-name h1{
   font-family: 'MV Boil';
-  font-weight: bold;
   margin: 0 auto;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 .group-area{
@@ -243,7 +249,41 @@ body{
 .group-edit-area .edit-area-icon{
   margin-top: 50px;
   margin-right: 5px;
+}
 
+.edit-area-icon{
+  position:relative;
+
+}
+
+.edit, .del {
+  position:relative;
+}
+
+.tooltip {
+  width:130px;
+  padding:10px;
+  font-size:12px;
+  margin:-30px 0 0;
+  background-color:#666;
+  color:#fff;
+  position:absolute;
+  right:-160px;
+  top: 50%;
+}
+
+.tooltip:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color: rgba(102, 102, 102, 0);
+  border-right-color: #5e5e5e;
+  border-width: 8px;
+  margin-top: -8px;
 }
 
 .group-list-box{
@@ -299,7 +339,6 @@ body{
 
 .main-container img{
   width: 30px;
-  margin-right: 5px;
 }
 
 
@@ -383,3 +422,71 @@ body{
   font-size: 16px;
 }
 
+
+@media screen and (max-width:767px){
+
+  .icon1 {
+    margin: 5px 0 0 130px;
+    width: 30px;
+  }
+
+  .auth-path .btn {
+    font-size: 5px;
+  }
+
+  .list-top .btn {
+    font-size: 8px;
+    margin-right: 15px;
+  }
+
+  .text {
+    font-size: 12px;
+    line-height: 2.0;
+  }
+
+  .list-area {
+    width: 250px;
+    height: 150px;
+    padding: 0.1em 0em 0em 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .edit-area {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .edit-area-icon {
+    width: 30px;
+  }
+
+  .group-edit-area .edit-area-icon{
+    margin-top: 25px;
+    margin-right: 20px;
+  
+  }
+  /************グループ選択画面**************/
+
+  .pick-my-group h1 {
+    width: 70%;
+    font-size: 18px;
+  }
+
+  .group-pick-list {
+    padding: 25px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  /************グループ選択画面**************/
+  .group-name h1 {
+  margin-left: 20px;
+  font-size: 14px;
+  }
+  .group-list-area {
+    width: 250px;
+    height: 150px;
+    padding: 0.1em 0em 0em 0.1em;
+    margin-bottom: 20px;
+  }
+}

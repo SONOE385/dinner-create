@@ -11,9 +11,10 @@
             <div class="user-infomation-contents">
                 <form method="POST" action="{{ route('group.edit', $group->id ) }}">
                     @csrf
-                    <div class="user-infomation-title">
-                    グループ編集
-                    </div>
+                    <div class="user-infomation-title-user">
+                        <img src="/image/edit-group.png" alt="">
+                    </div>          
+
 
                     <div class="">
                         <div class="row mb-3">              

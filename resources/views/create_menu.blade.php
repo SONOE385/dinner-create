@@ -19,12 +19,12 @@
 
                 <form method="POST" action="{{ route('dinner.store') }}">
                     @csrf
-                    <div class="user-infomation-title">
-                    献立登録
-                    </div>
+                    <div class="user-infomation-title-user">
+                        <img src="/image/create-menu.png" alt="">
+                    </div>          
 
                     <div class="">
-                        <div class="row mb-3">
+                        <div class="row mb-1">
                             <div>
                                 <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
                                     @foreach ($groups as $group)
