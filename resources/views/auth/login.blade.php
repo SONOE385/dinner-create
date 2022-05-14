@@ -9,7 +9,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="user-infomation-title">
-                    ログイン
+                        <img src="/image/login.png" alt="">
                     </div>                        
                         <div class="row mb-3">                        
                             <div class="">
@@ -39,7 +39,7 @@
                         <div class="">
                             <div class="login">
                                 <button type="submit" class="btn btn-dark user-infomation-login-button">
-                                    {{ __('ログイン') }}
+                                    {{ __('login') }}
                                 </button>
                             </div>
                         </div>

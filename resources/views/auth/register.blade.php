@@ -8,9 +8,9 @@
         <div class="user-infomation-contents">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <div class="user-infomation-title">
-                    会員登録
-                </div>
+                <div class="user-infomation-title-user">
+                    <img src="/image/create-user.png" alt="">
+                </div>          
 
                 <div class="">
                     <div class="row mb-3">              

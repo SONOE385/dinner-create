@@ -13,9 +13,9 @@
             <div class="user-infomation-contents">
                 <form method="POST" action="{{ route('dinner.update', $dinner->id) }}">
                     @csrf
-                    <div class="user-infomation-title">
-                    献立編集
-                    </div>
+                    <div class="user-infomation-title-user">
+                        <img src="/image/edit-menu.png" alt="">
+                    </div>          
 
                     <div class="">
                         <div class="row mb-3">              

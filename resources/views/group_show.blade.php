@@ -16,8 +16,8 @@
             </div>
             <div class="group-edit-area">
                 <div class="edit-area-icon">
-                    <a href="/group-edit/{{ $group->id }}" class="edit"><img src="/image/w-edit-icon.png" alt=""></a>
-                    <a href="/group-del/{{ $group->id }}" class="del"><img src="/image/w-del-icon.png" alt=""></a>
+                    <a href="/group-edit/{{ $group->id }}" class="group-edit"><img src="/image/w-edit-icon.png" alt=""></a>
+                    <a href="/group-del/{{ $group->id }}" class="group-del" onclick="return confirm('削除しますか?')"><img src="/image/w-del-icon.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                             <div class="edit-area">
                                 <div class="edit-area-icon">
                                     <a href="/dinner.edit/{{ $dinner->id }}" class="edit"><img src="/image/edit-icon.png" alt=""></a>
-                                    <a href="/dinner.del/{{ $dinner->id }}" class="del"><img src="/image/del-icon.png" alt=""></a>
+                                    <a href="/dinner.del/{{ $dinner->id }}" class="del" onclick="return confirm('削除しますか?')"><img src="/image/del-icon.png" alt=""></a>
                                 </div>
                             </div>
                         </div>

@@ -5,9 +5,9 @@
 
 @section('content')
 <body class="container" style="background-color:#F1EFE8" >
-        <div class="header">
+        <div class="header" id="top">
             <div class="title-area">
-               <a href="" class="title-img"><img src="/image/title.png" alt=""></a>
+               <a href="#top" class="title-img"><img src="/image/title.png" alt=""></a>
 
                <div class="icon1">
                 <img src="/image/icon1.png" alt="">
@@ -73,7 +73,7 @@
                                 <div class="edit-area">
                                     <div class="edit-area-icon">
                                         <a href="/dinner.edit/{{ $dinner->id }}" class="edit"><img src="/image/edit-icon.png" alt=""></a>
-                                        <a href="/dinner.del/{{ $dinner->id }}" class="del"><img src="/image/del-icon.png" alt=""></a>
+                                        <a href="/dinner.del/{{ $dinner->id }}" class="del" onclick="return confirm('削除しますか?')"><img src="/image/del-icon.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -82,5 +82,4 @@
         </div>
         <div class="footer"></div>
 </body>
-
 @endsection
