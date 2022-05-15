@@ -167,6 +167,6 @@ class DinnerController extends Controller
 
         $dinner->delete();
 
-        return redirect()->route('dinner.index')->with('message', '削除しました。');
+        return redirect()->route('dinner.index')->with('delete', '削除しました。');
     }
 }

@@ -4,6 +4,13 @@
 @section('title','ホーム')
 
 @section('content')
+
+@if (session('delete'))
+    <div class="alert alert-danger update-alert">
+        選択した献立を削除しました。
+    </div>
+@endif
+
 <body class="container" style="background-color:#F1EFE8" >
         <div class="header" id="top">
             <div class="title-area">
