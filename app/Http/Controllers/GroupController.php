@@ -123,17 +123,21 @@ class GroupController extends Controller
         $rules = [
             'name' => ['required', 'string'],
         ];
-        
+
         $this->validate($request, $rules);
         
         if ($user->id !== $group->user_id) {
             return redirect()->route('login')->with('error', '許可されていない操作です');
         };
 
-        $group->fill($request->input('group'));
-        $group->save();
+        // リクエストデータ受取
+        $form = $request->all();
+        // フォームトークン削除
+        unset($form['_token']);
         
-        return redirect()->route('group.edit')->with('message', '更新しました。');    
+        $group->fill($form)->save();
+        
+        return redirect()->route('group.show', $id)->with('message', '更新しました。');    
     }
 
     /**

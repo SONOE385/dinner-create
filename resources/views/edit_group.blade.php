@@ -9,7 +9,7 @@
 
         <div class="row justify-content-center">
             <div class="user-infomation-contents">
-                <form method="POST" action="{{ route('group.edit', $group->id ) }}">
+                <form method="POST" action="{{ route('group.update', $group->id ) }}">
                     @csrf
                     <div class="user-infomation-title">
                     グループ編集
