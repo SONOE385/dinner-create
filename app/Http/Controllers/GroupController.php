@@ -118,6 +118,7 @@ class GroupController extends Controller
     public function update(Request $request, $id)
     {
         $user = Auth::user();
+        
         $group = Group::find($id);
 
         $rules = [
