@@ -56,7 +56,9 @@ class DinnerController extends Controller
     {   
         $rules = [
             'group_id' => ['required'],
-            'meal' => ['required', 'string'],
+            'meal' => ['required', 'string','max:16'],
+            'side' => ['string','max:16'],
+            'side' => ['string','max:16'],
         ];
 
         $this->validate($request, $rules);
@@ -131,9 +133,11 @@ class DinnerController extends Controller
 
         $rules = [
             'group_id' => ['required'],
-            'meal' => ['required', 'string'],
+            'meal' => ['required', 'string','max:16'],
+            'side' => ['string','max:16'],
+            'side' => ['string','max:16'],
         ];
-
+        
         $this->validate($request, $rules);
 
         if ($auth_id !== $dinner->user_id) {
