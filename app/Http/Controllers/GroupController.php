@@ -157,6 +157,7 @@ class GroupController extends Controller
 
         $group->delete();
 
+        
         return redirect()->route('group.index')->with('message', '削除しました。');
     }
 }
