@@ -45,7 +45,7 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string','max:24'],
         ];
 
         $this->validate($request, $rules);
@@ -122,7 +122,7 @@ class GroupController extends Controller
         $group = Group::find($id);
 
         $rules = [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string','max:24'],
         ];
 
         $this->validate($request, $rules);
