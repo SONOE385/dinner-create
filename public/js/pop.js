@@ -24,4 +24,10 @@ tippy('.group-del', {
     placement: 'top',
     arrow: false
     });
-        
+
+tippy('.create-menu', {
+  content: "献立を作成する",
+  placement: 'right',
+  arrow: false
+  });
+      

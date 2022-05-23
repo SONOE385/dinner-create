@@ -123,8 +123,41 @@
 
 @media screen and (max-width:767px){
 
+/************ログイン画面**************/
+  .user-infomation-contents {
+    width: 80%;
+    padding: 20px 0;
+    }
+
+    .user-infomation-login-button {
+        margin: 30px auto 0;
+        width: 80px;
+        font-size: 14px;
+    }
+
+    .user-infomation-button {
+        margin: 30px auto 0;
+        width: 80px;
+        font-size: 14px;
+    }
+
+    .user-infomation-contents form input {
+        width: 80%;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .user-infomation-contents a {
+        font-size: 13px;
+    }
+
+    .user-infomation-contents form select {
+        font-size: 14px;
+    }
+
     .auth-path .btn {
-      font-size: 5px;
+        font-size: 10px;
+        padding: 3px 4px;
     }
     
-  }
+}

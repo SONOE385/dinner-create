@@ -5,20 +5,21 @@
 @section('content')
 
 <div class="main-container">
-    <div class="reverse">
+    <div class="reverse" width=150px;>
+        <a href="{{ route('dinner.index') }}" style="color:white;"><img src="/image/home.png" alt="">ホーム</a>
         <a href="{{ route('group.index') }}" style="color:white;"><img src="/image/矢印ボタン.png" alt="">戻る</a>
     </div>
     
     <div class="my-group-body">
         <div class="my-group" id="">
             <div class="group-name">
-                <h1>{{ $group->name }}</h1>
-            </div>
-            <div class="group-edit-area">
-                <div class="edit-area-icon">
-                    <a href="/group-edit/{{ $group->id }}" class="group-edit"><img src="/image/w-edit-icon.png" alt=""></a>
-                    <a href="/group-del/{{ $group->id }}" class="group-del" onclick="return confirm('削除しますか?')"><img src="/image/w-del-icon.png" alt=""></a>
+                <div class="group-title">
+                    <a href="{{ route('dinner.create') }}" class="create-menu"><h1>{{ $group->name }}</h1></a>
                 </div>
+            </div>
+            <div class="group-edit-area-icon">
+                <a href="/group-edit/{{ $group->id }}" class="group-edit"><img src="/image/w-edit-icon.png" alt=""></a>
+                <a href="/group-del/{{ $group->id }}" class="group-del" onclick="return confirm('削除しますか?')"><img src="/image/w-del-icon.png" alt=""></a>
             </div>
         </div>
 

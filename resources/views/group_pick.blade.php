@@ -6,6 +6,7 @@
 
 <div class="main-container">
     <div class="reverse">
+        <a href="{{ route('dinner.index') }}" style="color:white;"><img src="/image/home.png" alt="">ホーム</a>
         <a href="{{ route('dinner.index') }}" style="color:white;"><img src="/image/矢印ボタン.png" alt="">戻る</a>
     </div>
 

@@ -47,7 +47,7 @@
         </div>
         <div class="main">
 
-            <img src="/image/icon2.png" class="icon2" alt="">
+                <img src="/image/icon2.png" class=icon2 alt="">
 
             <div class="list-top">
                 <a href="{{ route('group.index') }}">

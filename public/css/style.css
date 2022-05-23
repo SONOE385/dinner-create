@@ -8,6 +8,7 @@ body{
 /************フォントの一括変更***********/
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-style: italic;
+  z-index: 1;
 }
 
 /*********ヘッダー***********/
@@ -31,11 +32,11 @@ body{
   top: 0; /* 上下の固定位置を上から0pxにする */
   left: 0; /* 左右の固定位置を左から0pxにする */
   display: flex; /* 中の要素を横並びにする */
+  z-index : 2;
 }
 
 .title-area .title-img{
   width:25%;
-  margin-right: -75px;
   margin-top: 10px;
 }
 
@@ -43,9 +44,15 @@ body{
   width: 100%;
 }
 
+.title-area a img:hover{
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
+
 .icon1{
   margin-top: 5px;
   width:50px;
+  margin-right: 10%;
 }
 
 .icon1 img{
@@ -161,6 +168,7 @@ body{
   display: flex;
   width:50px;
   margin: 0 0 0 auto;
+  
 }
 
 .edit-area .edit{
@@ -192,12 +200,6 @@ body{
   margin-bottom: 0;
 }
 
-/* .delete a{
-  color: red;
-  margin-right: 20px;
-} */
-
-
 /*********ログイン画面***********/
 .text-center{
   width:50%;
@@ -212,27 +214,39 @@ body{
   width: 90%;
   color:white;
   display: flex;
-  text-align: center;
 }
 
 .group-name{
-  padding:30px 0 20px 0;
-  width: 50%;
-  text-align: center;
+  padding: 8px 0 0 0;
+  width: 80%;
   font-size: 18px;
   margin:0 auto;
-
+  display: flex;
+  text-align: center;
 }
 
-.group-name h1{
-  font-family: 'MV Boil';
-  margin: 0 auto;
-  margin-left: 50px;
+.group-title{
+  text-align: center;
+}
+
+.group-title h1{
+  margin-bottom: 0px;
+}
+
+
+.group-title a{
+  text-decoration: none;
+  color:white;
+}
+
+.group-title a:hover{
+  text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83), 6px 0px 15px rgba(255, 255, 240, 0.83);
+	transition: .4s;
 }
 
 .group-area{
   margin-bottom: 10px;
-  height:500px;
+  height: 450px;
   overflow:auto;
   background-color: rgba(255,255,255, 0.8);
   border-radius: 5px;
@@ -251,9 +265,12 @@ body{
   margin-right: 5px;
 }
 
-.edit-area-icon{
-  position:relative;
-
+.group-edit-area-icon{
+  margin: 20px 10px 10px 0;
+  /* margin-right: 10px; */
+}
+.group-edit-area-icon img{
+  width: 40px;
 }
 
 .edit, .del {
@@ -287,7 +304,7 @@ body{
 }
 
 .group-list-box{
-    width:85%;
+    width: 88%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -328,17 +345,23 @@ body{
 }
 
 .reverse{
-  height: 60px;
-  width: 110px;
+  height: 40px;
+  width: 220px;
   padding: 20px;
+  display: flex;
 }
 
 .reverse a{
   text-decoration: none;
+  margin-right: 15px;
+}
+
+.reverse img{
+  width: 20px;
 }
 
 .main-container img{
-  width: 30px;
+  width: 20px;
 }
 
 
@@ -357,7 +380,7 @@ body{
   border-radius: 5px;
   margin: 0 auto;
   max-width: 1000px;
-  width: 100%;
+  width: 90%;
   color:white;
   display: flex;
   text-align: center;
@@ -378,7 +401,7 @@ body{
   margin: auto;
   margin-top: 20px;
   max-width: 1000px;
-  width: 100%;
+  width: 90%;
   font-size: 25px;
   font-family: 'MV Boil';
   font-weight: bold;
@@ -412,7 +435,7 @@ body{
 .update-alert {
   position: absolute;
   padding: 20px 10%;
-  top: 20%;
+  top: 30%;
   left: 50%;
   z-index: 2;
   transform: translate(-50%, -50%);
@@ -422,21 +445,41 @@ body{
   font-size: 16px;
 }
 
+/*ログインエラーメッセージ*/
+strong{
+  text-align: center;
+}
+
+
 
 @media screen and (max-width:767px){
+  .title-area{
+    color:#8E3330;
+    display: flex;
+    padding:30px 0 20px 0;
+  }
+  
+
+  .title-area .title-img{
+    width:35%;
+  }
+  
+  .title-area a img{
+    width: 100%;
+  }  
 
   .icon1 {
-    margin: 5px 0 0 130px;
     width: 30px;
   }
 
   .auth-path .btn {
-    font-size: 5px;
+    font-size: 12px;
   }
 
   .list-top .btn {
-    font-size: 8px;
-    margin-right: 15px;
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 4px 8px;
   }
 
   .text {
@@ -465,6 +508,41 @@ body{
     margin-right: 20px;
   
   }
+
+  .icon2{
+    width:18%;
+    margin:60px 0 60px 0;
+  }
+ 
+  .list-title{
+    width: 45%;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
+  .list-title img{
+    margin: 0 auto;
+  }
+
+  .reverse{
+    height: 60px;
+    width: 150px;
+    padding: 10px;
+    display: flex;
+  }
+  
+  .reverse a{
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 13px;
+  }
+
+  .reverse img{
+    width: 20px;
+  }
+  
+
+
   /************グループ選択画面**************/
 
   .pick-my-group h1 {
@@ -478,15 +556,42 @@ body{
     font-size: 15px;
   }
 
-  /************グループ選択画面**************/
+  .group-name{
+    display: flex;
+  }
+
   .group-name h1 {
   margin-left: 20px;
-  font-size: 14px;
-  }
+  font-size: 18px;
+}
+
   .group-list-area {
     width: 250px;
     height: 150px;
     padding: 0.1em 0em 0em 0.1em;
     margin-bottom: 20px;
   }
+
+  .group-edit-area-icon{
+    width: 60px;
+  }
+
+  .group-edit-area-icon img{
+    width: 18px;
+  }
+    
+  /************献立作成メッセージ**************/
+  .update-alert {
+    padding: 10px 5%;
+    top: 30%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border-color: rgb(228, 0, 0);
+    font-size: 14px;
+
+}
+
 }
