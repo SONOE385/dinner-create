@@ -73,9 +73,9 @@
                     @foreach($dinners as $dinner)
                             <div class="list-area">
                                 <p class="text">
-                                    main-------{{ $dinner->meal }}</br>
-                                    side-------{{ $dinner->side }}</br>
-                                    soup-------{{ $dinner->soup }}           
+                                    main-----{{ $dinner->meal }}</br>
+                                    side-----{{ $dinner->side }}</br>
+                                    soup-----{{ $dinner->soup }}           
                                 </p>
                                 <div class="edit-area">
                                     <div class="edit-area-icon">

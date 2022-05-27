@@ -28,9 +28,9 @@
                     @foreach($dinners as $dinner)
                         <div class="group-list-area">
                             <p class="text">
-                                meal-------{{ $dinner->meal }}</br>
-                                side-------{{ $dinner->side }}</br>
-                                soup-------{{ $dinner->soup }}           
+                                meal-----{{ $dinner->meal }}</br>
+                                side-----{{ $dinner->side }}</br>
+                                soup-----{{ $dinner->soup }}           
                             </p>
                             <div class="edit-area">
                                 <div class="edit-area-icon">

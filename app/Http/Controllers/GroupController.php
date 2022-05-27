@@ -21,7 +21,7 @@ class GroupController extends Controller
         $auth_id = Auth::id();
 
         // ユーザーごとのグループデータを表示
-        $groups = Group::where('user_id', '=', $auth_id)->get();
+        $groups = Group::where('user_id', '=', $auth_id)->orderBy('created_at', 'desc')->get();
 
         return view("group_pick", ['groups' => $groups]);
     }
@@ -72,7 +72,8 @@ class GroupController extends Controller
         $user = Auth::user();
 
         // ユーザーごとのグループデータを表示
-        $dinners = Dinner::where('group_id', '=', $id)->get();
+        $dinners = Dinner::where('group_id', '=', $id)->orderBy('created_at', 'desc')->get();
+
         $group = Group::find($id);
 
         if (!isset($group) OR $user->id !== $group->user_id) {

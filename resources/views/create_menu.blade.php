@@ -27,7 +27,7 @@
                     <div class="">
                         <div class="row mb-1">
                             <div>
-                                <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" required autocomplete="group" autofocus>
+                                <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" value="{{ old('group') }}" placeholder="group" autocomplete="group" autofocus>
                                     @foreach ($groups as $group)
                                     <option value="{{ $group->id }}">{{ $group->name }}</option>
                                     @endforeach
@@ -47,7 +47,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input action="" id="meal" type="text" class="form-control @error('meal') is-invalid @enderror" name="meal" value="{{ old('meal') }}" placeholder="meal" required autocomplete="meal" autofocus>
+                                <input action="" id="meal" type="text" class="form-control @error('meal') is-invalid @enderror" name="meal" value="{{ old('meal') }}" placeholder="meal" autocomplete="meal" autofocus>
                                 @error('meal')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input id="side" type="side" class="form-control @error('side') is-invalid @enderror" name="side" value="{{ old('side') }}" placeholder="side" required autocomplete="side">
+                                <input id="side" type="side" class="form-control @error('side') is-invalid @enderror" name="side" value="{{ old('side') }}" placeholder="side" autocomplete="side">
                                 @error('side')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                         
                         <div class="row mb-3">                        
                             <div class="">
-                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" value="{{ old('soup') }}" placeholder="soup" required autocomplete="new-soup">
+                                <input id="soup" type="soup" class="form-control @error('soup') is-invalid @enderror" name="soup" value="{{ old('soup') }}" placeholder="soup" autocomplete="new-soup">
                                 
                                 @error('soup')
                                 <span class="invalid-feedback" role="alert">

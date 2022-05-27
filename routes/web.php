@@ -27,7 +27,6 @@ Route::get('/list_group', [App\Http\Controllers\GroupController::class, 'index']
 Route::get('/create_group', [App\Http\Controllers\GroupController::class, 'create'])->name('group.create');
 Route::post('/create_group', [App\Http\Controllers\GroupController::class, 'store'])->name('group.store');
 
-
 // ログイン時のみ働くコントローラー
 Route::group(['middleware' => 'auth'], function()
 {  

@@ -23,7 +23,8 @@
                             <div class="">
                                 <select id="group" list="dinner-group" type="text" class="form-control @error('group') is-invalid @enderror" name="group_id" placeholder="group" required autocomplete="group" autofocus>
                                     @foreach ($groups as $group)
-                                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    {{--グループidとディナーのidが一致したらhtmlの<>内にselectedを追加させ、グループ名が最初から選択された状態で編集--}}
+                                    <option value="{{ $group->id }}" {{ $group->id == $dinner->group_id ? 'selected' : null }}>{{ $group->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('group')

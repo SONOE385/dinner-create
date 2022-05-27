@@ -74,13 +74,13 @@ return [
     'lte' => [
         'numeric' => ':attributeは:value以下で入力してください。',
         'file' => ':attributeは:value KB以下のファイルを選択してください。',
-        'string' => ':attributeは:value文字以下入力してください。',
+        'string' => ':attributeは:value文字以下で入力してください。',
         'array' => ':attributeは:value個以下にしてください。',
     ],
     'max' => [
         'numeric' => ':attributeは:max以下で入力してください。',
         'file' => ':attributeは:max KB以下のファイルを選択してください。',
-        'string' => ':attributeは:max文字以下入力してください。',
+        'string' => ':attributeは:max文字以下で入力してください。',
         'array' => ':attributeは:max個以下にしてください。',
     ],
     'mimes' => ':attributeは:values形式で選択してください。',
@@ -149,6 +149,7 @@ return [
     'attributes' => [
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'meal' => ''
     ],
 
 ];

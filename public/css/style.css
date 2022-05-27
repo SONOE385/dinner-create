@@ -388,9 +388,9 @@ body{
 
 .pick-my-group h1{
   width: 50%;
+  margin: 0 auto;
   font-family: 'MV Boil';
   font-weight: bold;
-  margin: 0 auto;
 }
 
 .group-pick-list{

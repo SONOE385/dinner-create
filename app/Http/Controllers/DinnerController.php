@@ -19,7 +19,7 @@ class DinnerController extends Controller
         $auth = Auth::user();
         $auth_id = Auth::id();
 
-        $dinners = Dinner::where('user_id', '=', $auth_id)->get();
+        $dinners = Dinner::where('user_id', '=', $auth_id)->orderBy('created_at', 'desc')->get();
         // // ユーザーごとのグループデータを表示
         // $dinners = Dinner::select('id','meal', 'side', 'soup')->latest()->limit(10)->get();
 
@@ -42,7 +42,7 @@ class DinnerController extends Controller
         $auth = Auth::user();
         $auth_id = Auth::id();
 
-        $groups = Group::where('user_id', '=', $auth_id)->get();
+        $groups = Group::where('user_id', '=', $auth_id)->orderBy('created_at', 'desc')->get();
         return view("create_menu",['groups' => $groups]);
     }
 
@@ -56,9 +56,9 @@ class DinnerController extends Controller
     {   
         $rules = [
             'group_id' => ['required'],
-            'meal' => ['required', 'string','max:16'],
-            'side' => ['string','max:16'],
-            'side' => ['string','max:16'],
+            'meal' => ['required', 'string','max:14'],
+            'side' => ['max:14'],
+            'soup' => ['max:14'],
         ];
 
         $this->validate($request, $rules);
@@ -133,9 +133,9 @@ class DinnerController extends Controller
 
         $rules = [
             'group_id' => ['required'],
-            'meal' => ['required', 'string','max:16'],
-            'side' => ['string','max:16'],
-            'side' => ['string','max:16'],
+            'meal' => ['required', 'string','max:14'],
+            'side' => ['max:14'],
+            'soup' => ['max:14'],
         ];
         
         $this->validate($request, $rules);
