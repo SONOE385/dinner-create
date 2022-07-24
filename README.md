@@ -36,9 +36,9 @@
 
 ## インストール方法
  
-そのまま、image_list.blade.phpをブラウザで開き、
+そのまま、resources/views/dinner.blade.phpをブラウザで開き、
 ログイン画面で下記を使用すると閲覧できます。  
 【email】taro@techis.jp
-【pass】tarou  
+【pass】tar 
   
   
