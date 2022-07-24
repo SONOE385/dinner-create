@@ -14,7 +14,7 @@
 
 ## デモ
  [Webサイトで見る](https://team-dinner-group.herokuapp.com/)
-![instagram](https://user-images.githubusercontent.com/95341532/175486060-c25c3db2-0d67-45d7-9592-82d92e5c0b0a.png)
+![dinner](https://user-images.githubusercontent.com/95341532/180627921-45ec1016-c908-4861-aa16-efe72da34e71.png)
  
 ## サービス内容
  
