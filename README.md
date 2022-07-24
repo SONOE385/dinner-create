@@ -38,7 +38,7 @@
  
 そのまま、resources/views/dinner.blade.phpをブラウザで開き、
 ログイン画面で下記を使用すると閲覧できます。  
-【email】taro@techis.jp
-【pass】tar 
+【email】tarou@techis.jp
+【pass】tarotaro
   
   
